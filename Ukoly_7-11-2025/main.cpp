@@ -15,6 +15,10 @@ const uint64_t Divisor = 2147483647;
 
 const int pairs = 40000000;
 
+inline bool match(uint64_t a, uint64_t b){
+    return (a & 0xFFFF) ==(b & 0xFFFF);
+}
+
 int main()
 {
     uint64_t a = 591;
