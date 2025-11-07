@@ -1,0 +1,4 @@
+jenom textak na psani veci
+
+uzivateli vypsat prvidla pohybu- jdi + směr: doprava, doleva, nahoru, dolu
+pro kazde rozhodnuti bude case a podle toho se budou volat urcite funkce

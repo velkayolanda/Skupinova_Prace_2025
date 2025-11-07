@@ -1,4 +1,4 @@
-#NIGDO SEM DOPICI NIC NEPISTE KURWA 
+#nepsat nic, dik
 cmake_minimum_required(VERSION 3.16)
 project(Skupinova_Prace_2025)
 
@@ -18,5 +18,11 @@ foreach(MAIN_FILE IN LISTS MAIN_FILES)
     string(REPLACE "/" "_" EXEC_NAME ${PROG_DIR})
 
     add_executable(${EXEC_NAME} ${SRC}
-            Ukoly_7-11-2025/main.cpp)
+            Ukoly_7-11-2025/main.cpp
+            Textova_hra/src/enemy_types.cpp
+            Textova_hra/src/enemy_types.h
+            Textova_hra/src/pravidla_hry.cpp
+            Textova_hra/src/pravidla_hry.h
+            Textova_hra/src/dice_roll.cpp
+            Textova_hra/src/dice_roll.h)
 endforeach()
