@@ -1,14 +1,8 @@
-//
-// Created by honzi on 7. 11. 2025.
-//
+#ifndef DICE_ROLL_H
+#define DICE_ROLL_H
 
-#ifndef SKUPINOVA_PRACE_2025_DICE_ROLL_H
-#define SKUPINOVA_PRACE_2025_DICE_ROLL_H
+int rollDice(int max_value = 20);
 
+int rollMultipleDice(int num_dice, int max_value = 20);
 
-class dice_roll
-{
-};
-
-
-#endif //SKUPINOVA_PRACE_2025_DICE_ROLL_H
+#endif // DICE_ROLL_H
