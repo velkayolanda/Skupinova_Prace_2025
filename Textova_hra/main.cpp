@@ -1,17 +1,34 @@
 #include <iostream>
+#include <random>
+#include <vector>
 #include "src/dice_roll.h"
+#include "src/enemy_types.h"
 
 int main() {
-    std::cout << "Rolling a d20 (1-20):\n";
+    std::cout << "Testing dice roll system...\n";
+    int roll = rollDice(20);
+    std::cout << "Rolled d20: " << roll << "\n\n";
 
-    for (int i = 0; i < 5; ++i) {
-        int result = rollDice(20);
-        std::cout << "Roll " << (i + 1) << ": " << result << "\n";
+    std::cout << "Testing enemy system...\n";
+    auto enemies = getAllEnemies();
+    std::cout << "Total enemies loaded: " << enemies.size() << "\n";
+
+    std::cout << "\nTesting random enemy generation...\n";
+    for (int tier = 1; tier <= 4; tier++) {
+        Enemy enemy = getRandomEnemy(tier);
+        std::cout << "Tier " << tier << ": " << enemy.name << " (difficulty " << enemy.difficultyNumber << ")\n";
     }
 
-    std::cout << "\nRolling 3d20:\n";
-    int multiRoll = rollMultipleDice(3, 20);
-    std::cout << "Total: " << multiRoll << "\n";
-// zde jsem si jenom potreboval skusit jestli mi funguje a) program b) cmake
+    std::cout << "\nTesting item system...\n";
+    auto items = getAllItems();
+    std::cout << "Total items loaded: " << items.size() << "\n";
+
+    std::cout << "\nTesting combat bonus calculation...\n";
+    std::vector<Item> testInventory = {items[1], items[6]}; // Short Sword + Chainmail
+    int bonus = calculateCombatBonus(testInventory);
+    std::cout << "Combat bonus with Short Sword and Chainmail: +" << bonus << "\n";
+
+    std::cout << "\n=== COMPLETE ===\n";
+
     return 0;
 }

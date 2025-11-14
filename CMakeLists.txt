@@ -23,7 +23,8 @@ foreach(MAIN_FILE IN LISTS ALL_MAINS)
     # Collect local .cpp and .h/.hpp files
     file(GLOB LOCAL_CPP "${PROG_DIR}/*.cpp")
     file(GLOB LOCAL_HEADERS "${PROG_DIR}/*.h" "${PROG_DIR}/*.hpp")
-    set(ALL_SOURCES ${LOCAL_CPP} ${LOCAL_HEADERS})
+    set(ALL_SOURCES ${LOCAL_CPP} ${LOCAL_HEADERS}
+            Textova_hra/src/lootmanager.h)
 
     # Get all subdirectories
     file(GLOB SUBDIRS LIST_DIRECTORIES true "${PROG_DIR}/*")
@@ -54,7 +55,8 @@ foreach(MAIN_FILE IN LISTS ALL_MAINS)
 
     # Create executable
     if(ALL_SOURCES)
-        add_executable(${EXEC_NAME} ${ALL_SOURCES})
+        add_executable(${EXEC_NAME} ${ALL_SOURCES}
+                Textova_hra/src/lootmanager.h)
         target_include_directories(${EXEC_NAME} PRIVATE ${PROG_DIR})
         list(LENGTH ALL_SOURCES NUM_FILES)
         message(STATUS "Executable: ${EXEC_NAME} (${NUM_FILES} files)")
