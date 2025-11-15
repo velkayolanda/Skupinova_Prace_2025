@@ -7,13 +7,7 @@
 
 #include <string>
 #include <vector>
-
-struct Item {
-    std::string name;
-    int combatBonus;      // Bonus pridany ku hodu kockou
-    int value;            // Gold value
-    std::string type;     // "zbrane", "armour", "potecka", "treasure"
-};
+#include "loot.h"
 
 struct Enemy {
     std::string name;
@@ -31,6 +25,12 @@ Enemy getRandomEnemy(int tier); // 1=lahky, 2=medium, 3=tazky, 4=boss
 
 // Geter na vsetky itemy
 std::vector<Item> getAllItems();
+
+// Loadnut itemy ze suboru
+std::vector<Item> loadItemsFromFile(const std::string& filename);
+
+// random drop na enemaka
+Item getEnemyLootDrop(const Enemy& enemy);
 
 // Vypocet celeho bonusu v combate
 int calculateCombatBonus(const std::vector<Item>& inventory);

@@ -1,9 +1,44 @@
 //
 // Created by honzi on 7. 11. 2025.
 //
-
 #include "enemy_types.h"
+#include "loot.h"
 #include <random>
+#include <fstream>
+#include <sstream>
+
+std::vector<Item> loadItemsFromFile(const std::string& filename) {
+    std::vector<Item> items;
+    std::ifstream file(filename);
+
+    if (!file.is_open()) {
+        // Fallback na hardcoded items pokud soubor neexistuje
+        return getAllItems();
+    }
+
+    std::string line;
+    while (std::getline(file, line)) {
+        // Preskoc prazdne radky a komentare
+        if (line.empty() || line[0] == '#') continue;
+
+        std::stringstream ss(line);
+        std::string name, type;
+        int combatBonus, value;
+
+        // Parsuj CSV format: name,combatBonus,value,type
+        std::getline(ss, name, ',');
+        ss >> combatBonus;
+        ss.ignore(); // Preskoc carku
+        ss >> value;
+        ss.ignore(); // Preskoc carku
+        std::getline(ss, type);
+
+        items.push_back({name, combatBonus, value, type});
+    }
+
+    file.close();
+    return items;
+}
 
 std::vector<Item> getAllItems() {
     return {

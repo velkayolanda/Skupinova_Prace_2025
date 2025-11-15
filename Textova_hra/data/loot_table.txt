@@ -1,0 +1,23 @@
+# Format: name,combatBonus,value,type
+# Zbrane
+Rusty Dagger,1,5,weapon
+Short Sword,2,15,weapon
+Battle Axe,3,30,weapon
+Enchanted Blade,4,50,weapon
+Legendary Sword,5,100,weapon
+
+# Armour
+Leather Vest,1,10,armor
+Chainmail,2,25,armor
+Steel Armor,3,45,armor
+Dragon Scale Armor,4,80,armor
+
+# Potecka
+Strength Potion,2,20,potion
+Hero's Elixir,3,35,potion
+
+# Poklady
+Gold Coins,0,10,treasure
+Silver Goblet,0,25,treasure
+Ancient Gem,0,50,treasure
+Dragon's Hoard,0,100,treasure
