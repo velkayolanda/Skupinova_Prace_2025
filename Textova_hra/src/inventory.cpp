@@ -34,23 +34,23 @@ bool inventory::addItem(const Item& item) {
 				weapons_[idx].quantity += item.quantity;
 				return true;
 			}
-			case ItemType::Armor: {
-				int idx = findIndexByName(armors_, item.name);
-				if (idx >= 0) {
-					armors_[idx].quantity += item.quantity;
-					return true;
-				}
-				if (static_cast<int>(armors_.size()) < maxArmors_) {
-					armors_.push_back(item);
-					return true;
-				}
-				return false; // no armor slot
-			}
 			if (static_cast<int>(weapons_.size()) < maxWeapons_) {
 				weapons_.push_back(item);
 				return true;
 			}
 			return false; // no weapon slot
+		}
+		case ItemType::Armor: {
+			int idx = findIndexByName(armors_, item.name);
+			if (idx >= 0) {
+				armors_[idx].quantity += item.quantity;
+				return true;
+			}
+			if (static_cast<int>(armors_.size()) < maxArmors_) {
+				armors_.push_back(item);
+				return true;
+			}
+			return false; // no armor slot
 		}
 		case ItemType::Potion: {
 			int idx = findIndexByName(potions_, item.name);
@@ -77,7 +77,6 @@ bool inventory::addItem(const Item& item) {
 			return false;
 	}
 }
-
 bool inventory::removeItem(const std::string& name, int qty) {
 	// weapons
 	int idx = findIndexByName(weapons_, name);
