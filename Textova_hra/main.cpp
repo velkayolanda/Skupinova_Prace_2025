@@ -183,6 +183,161 @@ int main() {
 
     std::cout << "\n=== COMBAT SYSTEM FUNKCNY! ===\n";
 
-   
+    // 6. TEST: INVENTORY SYSTEM
+    std::cout << "\n\n";
+    std::cout << "========================================\n";
+    std::cout << "       TEST INVENTARA                   \n";
+    std::cout << "========================================\n\n";
+
+    // Vytvor inventar: 5 zbrani, 3 lektvary, 3 brnenia, 2 vybavene sloty
+    inventory inv(5, 3, 3, 2);
+
+    std::cout << "--- TEST 1: Pridavanie predmetov ---\n";
+
+    // Vytvor nejake predmety
+    inventory::Item mec("Hrdzavy mec", inventory::ItemType::Weapon, 1);
+    inventory::Item luk("Dlhy luk", inventory::ItemType::Weapon, 1);
+    inventory::Item stit("Dreveny stit", inventory::ItemType::Armor, 1);
+    inventory::Item lektvar("Lektvar zdravia", inventory::ItemType::Potion, 2);
+    inventory::Item kluc("Stary kluc", inventory::ItemType::Misc, 1);
+
+    inv.addItem(mec);
+    inv.addItem(luk);
+    inv.addItem(stit);
+    inv.addItem(lektvar);
+    inv.addItem(kluc);
+    inv.addGold(100);
+
+    std::cout << "Pridane: Mec, Luk, Stit, 2x Lektvar, Kluc, 100 zlata\n\n";
+    inv.display();
+
+    std::cout << "\nStlac Enter pre pokracovanie...\n";
+    std::cin.get();
+
+    // TEST 2: Vybavenie predmetov
+    std::cout << "\n--- TEST 2: Vybavenie predmetov ---\n";
+    std::cout << "Vybavujem mec do slotu 0...\n";
+    if (inv.equipItem("Hrdzavy mec", 0)) {
+        std::cout << "Uspesne vybaveny!\n";
+    } else {
+        std::cout << "Nepodarilo sa vybavit!\n";
+    }
+
+    std::cout << "Vybavujem stit do slotu 1...\n";
+    if (inv.equipItem("Dreveny stit", 1)) {
+        std::cout << "Uspesne vybaveny!\n";
+    } else {
+        std::cout << "Nepodarilo sa vybavit!\n";
+    }
+
+    std::cout << "\n";
+    inv.display();
+
+    std::cout << "\nStlac Enter pre pokracovanie...\n";
+    std::cin.get();
+
+    // TEST 3: Odebieranie predmetov
+    std::cout << "\n--- TEST 3: Pouzitie lektvaru ---\n";
+    std::cout << "Pouzivam 1x Lektvar zdravia...\n";
+    if (inv.removeItem("Lektvar zdravia", 1)) {
+        std::cout << "Lektvar pouzity! +50 HP\n";
+    }
+
+    std::cout << "\n";
+    inv.display();
+
+    std::cout << "\nStlac Enter pre pokracovanie...\n";
+    std::cin.get();
+
+    // TEST 4: Pridavanie lootu z bojov
+    std::cout << "\n--- TEST 4: Ziskavanie lootu ---\n";
+    std::cout << "Porazil si nepriatelov a ziskal si:\n";
+
+    // Simuluj loot z boja
+    Item loot1 = getRandomLootByTypeGlobal("weapon");
+    Item loot2 = getRandomLootByValueGlobal(10, 30);
+
+    std::cout << "- " << loot1.name << " (typ: " << loot1.type << ")\n";
+    std::cout << "- " << loot2.name << " (typ: " << loot2.type << ")\n";
+
+    // Pridaj loot do inventara
+    if (inv.addLoot(loot1)) {
+        std::cout << loot1.name << " pridany do inventara!\n";
+    } else {
+        std::cout << loot1.name << " - inventar plny!\n";
+    }
+
+    if (inv.addLoot(loot2)) {
+        std::cout << loot2.name << " pridany do inventara!\n";
+    } else {
+        std::cout << loot2.name << " - inventar plny!\n";
+    }
+
+    inv.addGold(50);
+    std::cout << "Ziskane zlato: +50\n";
+
+    std::cout << "\n";
+    inv.display();
+
+    std::cout << "\nStlac Enter pre pokracovanie...\n";
+    std::cin.get();
+
+    // TEST 5: Nakupovanie (minutie zlata)
+    std::cout << "\n--- TEST 5: Nakupovanie v obchode ---\n";
+    std::cout << "Kupujes novy lektvar za 30 zlata...\n";
+
+    if (inv.spendGold(30)) {
+        std::cout << "Kupene!\n";
+        inventory::Item novyLektvar("Velky lektvar", inventory::ItemType::Potion, 1);
+        inv.addItem(novyLektvar);
+    } else {
+        std::cout << "Nemas dost zlata!\n";
+    }
+
+    std::cout << "\n";
+    inv.display();
+
+    std::cout << "\nStlac Enter pre pokracovanie...\n";
+    std::cin.get();
+
+    // TEST 6: Odvybavenie predmetu
+    std::cout << "\n--- TEST 6: Odvybavenie predmetu ---\n";
+    std::cout << "Odvybavujem mec zo slotu 0...\n";
+
+    if (inv.unequip(0)) {
+        std::cout << "Uspesne odvybaveny!\n";
+    } else {
+        std::cout << "Nepodarilo sa odvybavit!\n";
+    }
+
+    std::cout << "\n";
+    inv.display();
+
+    // TEST 7: Plny inventar
+    std::cout << "\n--- TEST 7: Test plneho inventara ---\n";
+    std::cout << "Pokusam sa pridat zbrane az do naplnenia...\n";
+
+    int pokusyZbrane = 0;
+    while (pokusyZbrane < 10) {
+        inventory::Item novaZbran("Zbran " + std::to_string(pokusyZbrane),
+                                  inventory::ItemType::Weapon, 1);
+        if (!inv.addItem(novaZbran)) {
+            std::cout << "Inventar zbrani je plny po " << pokusyZbrane << " pokusoch!\n";
+            break;
+        }
+        pokusyZbrane++;
+    }
+
+    std::cout << "\n";
+    inv.display();
+
+    std::cout << "\n\n";
+    std::cout << "========================================\n";
+    std::cout << "       FINALNY STAV INVENTARA           \n";
+    std::cout << "========================================\n";
+    std::cout << "Celkove zlato: " << inv.getGold() << "\n";
+    std::cout << "\n=== INVENTORY SYSTEM FUNKCNY! ===\n";
+
+
     return 0;
 }
