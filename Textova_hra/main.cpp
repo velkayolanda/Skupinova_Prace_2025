@@ -3,6 +3,7 @@
 #include <vector>
 #include "src/dice_roll.h"
 #include "src/enemy_types.h"
+#include "src/inventory.h"
 
 int main() {
     // 0. TEST: Kocka
@@ -81,5 +82,7 @@ int main() {
     }
 
     std::cout << "\n\n=== LOOT SYSTEM FUNKCNY! ===\n";
+
+   
     return 0;
 }
