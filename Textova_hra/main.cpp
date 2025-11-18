@@ -3,6 +3,7 @@
 #include <vector>
 #include "src/dice_roll.h"
 #include "src/enemy_types.h"
+#include "src/combat.h"
 
 int main() {
     // 0. TEST: Kocka
@@ -81,5 +82,104 @@ int main() {
     }
 
     std::cout << "\n\n=== LOOT SYSTEM FUNKCNY! ===\n";
+
+    // 5. TEST: COMBAT SYSTEM
+    std::cout << "\n\n";
+    std::cout << "========================================\n";
+    std::cout << "       TEST BOJOVEHO SYSTEMU            \n";
+    std::cout << "========================================\n\n";
+
+    // Inicializuj hraca
+    std::vector<Item> playerInventory;
+    int playerGold = 50;
+
+    // Vytvor bojovy system
+    Combat combat(playerInventory, playerGold);
+
+    std::cout << "Zakladny test - bez vybavenia:\n";
+    std::cout << "Stlac Enter pre pokracovanie...\n";
+    std::cin.get();
+
+    // Test 1: Jednoduchy nepriatela (Tier 1)
+    std::cout << "\n--- TEST 1: Tier 1 nepriatela ---\n";
+    Enemy rat = getRandomEnemy(1);
+    bool victory1 = combat.fight(rat);
+
+    if (victory1) {
+        std::cout << "\nAktualny inventar po boji:\n";
+        std::cout << "Zlato: " << playerGold << "\n";
+        std::cout << "Predmety (" << playerInventory.size() << "):\n";
+        for (const auto& item : playerInventory) {
+            std::cout << "  - " << item.name << " (+" << item.combatBonus << ")\n";
+        }
+    }
+
+    // Test 2: Stredne tazky nepriatela (Tier 2)
+    std::cout << "\n\n--- TEST 2: Tier 2 nepriatela ---\n";
+    std::cout << "Stlac Enter pre pokracovanie...\n";
+    std::cin.get();
+
+    Enemy orc = getRandomEnemy(2);
+    bool victory2 = combat.fight(orc);
+
+    if (victory2) {
+        std::cout << "\nAktualny inventar:\n";
+        std::cout << "Zlato: " << playerGold << "\n";
+        std::cout << "Predmety (" << playerInventory.size() << "):\n";
+        for (const auto& item : playerInventory) {
+            std::cout << "  - " << item.name << " (+" << item.combatBonus << ")\n";
+        }
+    }
+
+    // Test 3: Tazky nepriatela (Tier 3)
+    std::cout << "\n\n--- TEST 3: Tier 3 nepriatela ---\n";
+    std::cout << "Stlac Enter pre pokracovanie...\n";
+    std::cin.get();
+
+    Enemy troll = getRandomEnemy(3);
+    bool victory3 = combat.fight(troll);
+
+    if (victory3) {
+        std::cout << "\nAktualny inventar:\n";
+        std::cout << "Zlato: " << playerGold << "\n";
+        std::cout << "Predmety (" << playerInventory.size() << "):\n";
+        for (const auto& item : playerInventory) {
+            std::cout << "  - " << item.name << " (+" << item.combatBonus << ")\n";
+        }
+    }
+
+    // Test 4: Boss (Tier 4) - len ak hrac ma dost vybavenia
+    if (playerInventory.size() >= 2) {
+        std::cout << "\n\n--- TEST 4: BOSS FIGHT (Tier 4) ---\n";
+        std::cout << "Stlac Enter pre pokracovanie...\n";
+        std::cin.get();
+
+        Enemy boss = getRandomEnemy(4);
+        bool victory4 = combat.fight(boss);
+
+        if (victory4) {
+            std::cout << "\n*** GRATULUJEM! Porazil si bossa! ***\n";
+        }
+    }
+
+    // Finalny inventar
+    std::cout << "\n\n";
+    std::cout << "========================================\n";
+    std::cout << "         FINALNY INVENTAR               \n";
+    std::cout << "========================================\n";
+    std::cout << "\nZlato: " << playerGold << "\n";
+    std::cout << "Celkovy bojovy bonus: +" << calculateCombatBonus(playerInventory) << "\n";
+    std::cout << "\nPredmety (" << playerInventory.size() << "):\n";
+
+    if (playerInventory.empty()) {
+        std::cout << "  (Ziadne predmety)\n";
+    } else {
+        for (const auto& item : playerInventory) {
+            std::cout << "  - " << item.name << " (+" << item.combatBonus
+                      << " combat, " << item.value << " gold, " << item.type << ")\n";
+        }
+    }
+
+    std::cout << "\n=== COMBAT SYSTEM FUNKCNY! ===\n";
     return 0;
 }
