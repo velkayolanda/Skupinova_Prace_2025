@@ -8,13 +8,13 @@
 
 #include "enemy_types.h"
 #include "loot.h"
+#include "StatBar.h"
 #include <vector>
 #include <string>
 
 class Combat {
 private:
-    std::vector<Item>& playerInventory;
-    int playerGold;
+    StatBar& playerStats;
 
     int rollD20();
     int calculateTotalCombatBonus();
@@ -22,12 +22,12 @@ private:
     void displayRollResult(int roll, int bonus, int total, const std::string& context);
 
 public:
-    Combat(std::vector<Item>& inventory, int& gold);
+    Combat(StatBar& stats);
 
-    // Main combat function - returns true if player wins
+    // Hlavni funkce boje - vraci true, pokud hrác vyhraje
     bool fight(Enemy& enemy);
 
-    // Handle loot after winning
+    // Loot po vyhre
     void collectLoot(const Enemy& enemy);
 };
 

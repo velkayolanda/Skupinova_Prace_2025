@@ -229,7 +229,8 @@ bool inventory::addLoot(const ::Item& loot) {
 	std::transform(t.begin(), t.end(), t.begin(), ::tolower);
 
 	// treasure/trezor -> add gold directly
-	if (t == "treasure" || t == "trezor" || t == "treasure") {
+	//odstranil jsem duplicitu v porovnavani t == treasure
+	if (t == "treasure" || t == "trezor") {
 		// use loot.value as gold amount
 		addGold(loot.value);
 		return true;

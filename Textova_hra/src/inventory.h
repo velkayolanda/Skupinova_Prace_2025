@@ -21,6 +21,8 @@ public:
 		std::string name;
 		ItemType type;
 		int quantity{1};
+		//pridan combat bonus pro vypocet v statbaru
+		int combatBonus = 0;
 
 		Item() = default;
 		Item(std::string n, ItemType t, int q = 1) : name(std::move(n)), type(t), quantity(q) {}
