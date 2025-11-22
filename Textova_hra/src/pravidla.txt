@@ -1,5 +1,58 @@
-jenom textak na psani veci
+PRAVIDLA HRY
+Cil hry
 
-uzivateli vypsat prvidla pohybu- jdi + směr: doprava, doleva, nahoru, dolu
-pro kazde rozhodnuti bude case a podle toho se budou volat urcite funkce
-jop
+Tvym ukolem je prozkoumat podzemni labyrint, porazit nepratele a nakonec zabit mocneho draka, ktery ceka v hlubinach. Aby ses stal hrdinou Karaku, musis prezit, sbirat vybaveni a strategicky vyuzivat sve schopnosti.
+
+Pohyb po mape
+
+Kazda mistnost muze obsahovat nepratele, poklad, prazdno nebo pasti.
+
+Pohybujes se po mapovych polich podle instrukci hry.
+
+Jakmile vstoupis do mistnosti s nepratelem, automaticky zacne souboj.
+
+Soubojovy system
+
+Tvuj utok se sklada z hodu kostkou (1–20) + bonus z vybaveni.
+
+Nepritel ma svoji obtiznost (target number).
+
+Pokud je tvuj celkovy utok rovny nebo vyssi nez obtiznost nepratele, vyhravas.
+
+Prohra ve vyzve zpusobi ztratu zdravi.
+
+Pokud ztratis vsechno zdravi, hra konci.
+
+Vybaveni a loot
+
+Kazdy porazeny nepritel muze zanechat predmet.
+
+Predmety pridavaji bonusy do souboje nebo ziskavas zlato.
+
+Nektere predmety jsou unikatni nebo vzacne – davaji vyssi bonusy.
+
+Zlato lze vyuzit u obchodniku (pokud budou implementovani).
+
+Zdravi a staty
+
+Hrac ma maximalni zdravi.
+
+Ruzne predmety nebo udalosti mohou pridat nebo ubrat zdravi.
+
+Sleduj stav sveho zdravi – pokud klesne na nulu, hra konci.
+
+Boss - Drak
+
+Drak je nejsilnejsi nepritel ve hre.
+
+Jeho porazeni okamzite vyhrava hru.
+
+Pred vstupem do jeho doupete si over, ze mas dostatecne vybaveni a zdravi.
+
+Rada na zaver
+
+Nespechej. Podzemni labyrint je plny pasti, ale i pokladu.
+
+Kazde rozhodnuti muze znamenat preziti nebo smrt.
+
+Nekdy je lepsi se vyhnout souboji, jindy ziskat z nepratele hodnotny predmet.
