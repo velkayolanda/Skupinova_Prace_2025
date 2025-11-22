@@ -17,13 +17,15 @@ struct Pozice {
 
 
 class Mistnost {
+
     private:
     std::vector<Mistnost> Mistnosti;
     std::map<std::string, structMistnost> txtmistnost;
     std::vector<std::string> stxtmistnost;
     bool prvni;
-    std::string NacteniMistnosti(std::string PozadovanaM);
+
     public:
+    std::string NacteniMistnosti(std::string PozadovanaM);
     std::string dvere;
     std::vector<Pozice> cary;
 

@@ -1,4 +1,4 @@
-#ifndef LOOT_H
+	#ifndef LOOT_H
 #define LOOT_H
 
 #include <vector>

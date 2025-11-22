@@ -4,12 +4,12 @@
 ## Marek Sevcik
 - [ ] pravidla hry s Niki
 - [ ] kecy a rozhodnuti
-- [ ] 
+- [ ] status, health
 
 ## Nikola Haluzova
 - [ ] pravidla s markem
 - [ ] kecy a rozhodnuti
-- [ ] invetar
+- [ ] invetar - sloty specificke na zbrane swaping do inventare...
 
 ## Vladan Korenek
 - [ ] kostka

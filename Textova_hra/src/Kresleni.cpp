@@ -8,6 +8,7 @@
 #include <thread>
 #include <algorithm>
 #include <conio.h>
+#include <cmath>
 #include "windows.h"
 
 Kresleni::Kresleni(int sirka, int vyska)
@@ -27,7 +28,6 @@ Kresleni::Kresleni(int sirka, int vyska)
 
 Kresleni::~Kresleni()
 {
-
     std::cout << "\033[?25h" << std::endl;
 
     for (int i = 0; i < vyska; i++) {
@@ -70,10 +70,7 @@ void Kresleni::Cara(int x1, int y1, int x2, int y2)
     }
 }
 
-
-
 void Kresleni::Vykresleni(const Kresleni& kresleni) {
-
     std::cout << "\033[H";
 
     for (int i = 0; i < kresleni.vyska; i++) {
@@ -85,7 +82,7 @@ void Kresleni::Vykresleni(const Kresleni& kresleni) {
 }
 
 void Kresleni::VykresleniThread(Kresleni kresleni) {
-    while (!_kbhit()) { // dokud uživatel nestiskne klávesu
+    while (!_kbhit()) {
         kresleni.Vykresleni(kresleni);
         std::this_thread::sleep_for(std::chrono::milliseconds(15));
     }
@@ -104,7 +101,6 @@ void Kresleni::ZiskaniVelikostiConsole(int& columns, int& rows) {
     newSize.X = scrBufferWidth;
     newSize.Y = rows;
 
-
     int Status = SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), newSize);
     if (Status == 0)
     {
@@ -115,8 +111,16 @@ void Kresleni::ZiskaniVelikostiConsole(int& columns, int& rows) {
 
 void Kresleni::NacteniMistnosti(Mistnost& mistnost)
 {
-    int minX = 0, maxX = 0;
-    int minY = 0, maxY = 0;
+    // Kontrola, jestli místnost má nějaké čáry
+    if (mistnost.cary.empty()) {
+        std::cerr << "CHYBA: Mistnost nema zadne cary!\n";
+        return;
+    }
+
+    int minX = mistnost.cary[0].x1;
+    int maxX = mistnost.cary[0].x1;
+    int minY = mistnost.cary[0].y1;
+    int maxY = mistnost.cary[0].y1;
 
     for (auto& c : mistnost.cary) {
         minX = std::min({minX, c.x1, c.x2});
@@ -128,25 +132,46 @@ void Kresleni::NacteniMistnosti(Mistnost& mistnost)
     int width  = maxX - minX;
     int height = maxY - minY;
 
+    // OCHRANA PROTI DĚLENÍ NULOU
+    if (width <= 0) {
+        std::cerr << "VAROVANI: Mistnost ma nulovou sirku, nastavuji na 10\n";
+        width = 10;
+    }
+    if (height <= 0) {
+        std::cerr << "VAROVANI: Mistnost ma nulovou vysku, nastavuji na 10\n";
+        height = 10;
+    }
+
     float cilovas = (sirka  * 0.75f);
     float cilovav = (vyska  * 0.75f);
 
-    this->sirkaPZ = cilovas;
+    this->sirkaPZ = static_cast<int>(cilovas);
 
     float scaleX = cilovas / width;
     float scaleY = cilovav / height;
 
     float scale = std::min(scaleX, scaleY);
 
+    // Kontrola, že scale není neplatné číslo
+    if (scale <= 0 || scale != scale) { // scale != scale detekuje NaN
+        std::cerr << "CHYBA: Neplatny scale faktoru: " << scale << "\n";
+        scale = 1.0f;
+    }
+
     float cx = minX + width  / 2.0f;
     float cy = minY + height / 2.0f;
 
+    // Škálování čar
     for (auto& c : mistnost.cary) {
-        c.x1 = cx + (c.x1 - cx) * scale;
-        c.x2 = cx + (c.x2 - cx) * scale;
-        c.y1 = cy + (c.y1 - cy) * scale;
-        c.y2 = cy + (c.y2 - cy) * scale;
+        c.x1 = static_cast<int>(cx + (c.x1 - cx) * scale);
+        c.x2 = static_cast<int>(cx + (c.x2 - cx) * scale);
+        c.y1 = static_cast<int>(cy + (c.y1 - cy) * scale);
+        c.y2 = static_cast<int>(cy + (c.y2 - cy) * scale);
     }
+
+    // Najdi nové minimum po škálování
+    minX = mistnost.cary[0].x1;
+    minY = mistnost.cary[0].y1;
     for (auto& c : mistnost.cary) {
         minX = std::min({minX, c.x1, c.x2});
         minY = std::min({minY, c.y1, c.y2});
@@ -158,6 +183,7 @@ void Kresleni::NacteniMistnosti(Mistnost& mistnost)
     if (minX < 0) shiftX = -minX;
     if (minY < 0) shiftY = -minY;
 
+    // Posun do viditelné oblasti
     if (shiftX != 0 || shiftY != 0) {
         for (auto& c : mistnost.cary) {
             c.x1 += shiftX;
@@ -167,26 +193,34 @@ void Kresleni::NacteniMistnosti(Mistnost& mistnost)
         }
     }
 
+    // Vykreslení čar
     for (auto& c : mistnost.cary) {
         Cara(c.x1, c.y1, c.x2, c.y2);
     }
 }
 
 void Kresleni::VypisText(std::string Text, int y) {
-    int zacatek = sirkaPZ+2;
-    for (int i = zacatek; i < zacatek+Text.size() && i<sirka; i++) {
-        plocha[y][i] = Text[i-zacatek];
+    int zacatek = sirkaPZ + 2;
+
+    // Kontrola hraníc
+    if (y < 0 || y >= vyska) return;
+    if (zacatek >= sirka) return;
+
+    for (size_t i = 0; i < Text.size() && (zacatek + i) < sirka; i++) {
+        plocha[y][zacatek + i] = Text[i];
     }
 }
 
 void Kresleni::Psani(std::string Zivoty, std::string BonusD, std::string Item, std::string penize) {
+    std::vector<std::string> text = {
+        "Statistika: ",
+        "Mas zivotu: " + Zivoty,
+        "Bonus damage: " + BonusD,
+        "Item: " + Item,
+        "Penize: " + penize
+    };
 
-    std::vector<std::string> text= {"Statistika: ", "Mas zivotu: " + Zivoty,"Bonus damage: " + BonusD, "Item: " + Item, "Penize: " + penize};
-
-    for (int i=0; i<text.size();i++) {
-        VypisText(text[i],i);
+    for (size_t i = 0; i < text.size(); i++) {
+        VypisText(text[i], static_cast<int>(i));
     }
-
 }
-
-

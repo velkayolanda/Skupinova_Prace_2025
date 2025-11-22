@@ -59,11 +59,24 @@ bool Combat::fight(Enemy& enemy) {
 
 // Loot
 void Combat::collectLoot(const Enemy& enemy) {
+    // Přidej zlato
     playerStats.addGold(enemy.goldReward);
+    std::cout << "Získals " << enemy.goldReward << " zlata!\n";
 
+    // Pokud má nepřítel možný loot
     if (!enemy.possibleLootNames.empty()) {
+        std::cout << "[DEBUG] Získávám loot...\n";
         Item loot = getEnemyLootDrop(enemy);
-        playerStats.addItem(loot);
-        std::cout << "Dostals loot: " << loot.name << "\n";
+        std::cout << "[DEBUG] Loot získán: " << loot.name << "\n";
+
+        // Kontrola, jestli není "Nothing"
+        if (loot.name != "Nothing" && loot.type != "empty") {
+            // Loot z enemy_types.h vrací globální Item
+            // Musíme ho přidat do StatBar inventáře
+            playerStats.addItem(loot);
+
+            std::cout << "Dostals loot: " << loot.name
+                      << " (+" << loot.combatBonus << " combat bonus)\n";
+        }
     }
 }
