@@ -26,26 +26,26 @@ int main() {
     // 0. TEST: KOCKA
     // ============================================
     std::cout << "=== TEST KOCKY ===\n";
-    std::cout << "Hadzanie d20 (5x):\n";
+    std::cout << "Hadzenie d20 (5x):\n";
     for (int i = 1; i <= 5; i++) {
         int roll = rollDice(20);
         std::cout << "Hod " << i << ": " << roll << "\n";
     }
 
-    std::cout << "\nHadzanie 3d20:\n";
+    std::cout << "\nHadzenie 3d20:\n";
     int multiRoll = rollMultipleDice(3, 20);
-    std::cout << "SUCET: " << multiRoll << "\n\n";
+    std::cout << "Sucet: " << multiRoll << "\n\n";
 
     waitForEnter();
 
     // ============================================
-    // 1. INICIALIZACIA LOOT SYSTEMU
+    // 1. INICIALIZACE LOOT SYSTEMU
     // ============================================
     initLootSystem("data/loot_table.txt");
 
     std::cout << "\n=== LOOT SYSTEM TEST ===\n\n";
 
-    // 2a. TEST: Pouzitie v miestnosti
+    // 2a. TEST: Pouziti v mistnosti
     std::cout << "--- Vstupil si do miestnosti ---\n";
     if (rollForLoot(70)) {  // 70% sanca na loot
         Item loot = getRandomLootGlobal();
@@ -70,7 +70,7 @@ int main() {
     Item expensiveLoot = getRandomLootByValueGlobal(50, 100);
     std::cout << "Ziskal si: " << expensiveLoot.name << "\n";
 
-    // 3. TEST: Simulacia 5 miestnosti
+    // 3. TEST: Simulace 5 mistnosti
     std::cout << "\n\n=== SIMULACIA 5 MIESTNOSTI ===\n";
     for (int room = 1; room <= 5; room++) {
         std::cout << "\nMiestnost " << room << ": ";
@@ -101,7 +101,7 @@ int main() {
     std::cout << "       TEST BOJOVEHO SYSTEMU            \n";
     std::cout << "========================================\n\n";
 
-    // Inicializuj hraca pomocou StatBar
+    // Inicializuj hrace pomoci StatBar
     StatBar playerStats(100, 50);  // 100 HP, 50 gold
 
     std::cout << "Zaciatocny stav hraca:\n";
@@ -167,7 +167,7 @@ int main() {
         waitForEnter();
     }
 
-    // Finalne statistiky
+    // Finalni statistiky
     std::cout << "\n========================================\n";
     std::cout << "         FINALNE STATISTIKY             \n";
     std::cout << "========================================\n";
@@ -187,12 +187,12 @@ int main() {
     std::cout << "       TEST INVENTARA                   \n";
     std::cout << "========================================\n\n";
 
-    // Vytvor inventar: 5 zbrani, 3 lektvary, 3 brnenia, 2 vybavene sloty
+    // Inventar: 5 zbrani, 3 lektvary, 3 brneni, 2 sloty
     inventory inv(5, 3, 3, 2);
 
     std::cout << "--- TEST 1: Pridavanie predmetov ---\n";
 
-    // Vytvor predmety
+    // Predmety
     inventory::InventoryItem mec("Hrdzavy mec", inventory::ItemType::Weapon, 1);
     inventory::InventoryItem luk("Dlhy luk", inventory::ItemType::Weapon, 1);
     inventory::InventoryItem stit("Dreveny stit", inventory::ItemType::Armor, 1);
@@ -210,7 +210,7 @@ int main() {
     inv.display();
     waitForEnter();
 
-    // TEST 2: Vybavenie predmetov
+    // TEST 2: Equip
     std::cout << "\n--- TEST 2: Vybavenie predmetov ---\n";
     std::cout << "Vybavujem mec do slotu 0...\n";
     if (inv.equipItem("Hrdzavy mec", 0)) {
@@ -237,7 +237,7 @@ int main() {
     inv.display();
     waitForEnter();
 
-    // TEST 4: Ziskavanie lootu
+    // TEST 4: Loot
     std::cout << "\n--- TEST 4: Ziskavanie lootu ---\n";
     std::cout << "Porazil si nepriatelov a ziskal si:\n";
 
@@ -294,7 +294,7 @@ int main() {
 
     // TEST 7: Plny inventar
     std::cout << "\n--- TEST 7: Test plneho inventara ---\n";
-    std::cout << "Pokusam sa pridat zbrane az do naplnenia...\n";
+    std::cout << "Pokusam sa pridavat zbrane az do zaplnenia...\n";
 
     int pokusyZbrane = 0;
     while (pokusyZbrane < 10) {
@@ -319,7 +319,7 @@ int main() {
     waitForEnter();
 
     // ============================================
-    // 7. TEST: KRESLENIE (volitelne)
+    // 7. TEST: KRESLENI (volitelne)
     // ============================================
     std::cout << "\n========================================\n";
     std::cout << "       TEST KRESLENIA (nepovinne)       \n";
@@ -341,18 +341,18 @@ int main() {
             std::cout << "[DEBUG] Nacitam prvu miestnost...\n";
             Mistnost mistnost(true);
             mistnost.VyberMistnost();
-            std::cout << "[DEBUG] Prva miestnost nacitana, pocet car: " << mistnost.cary.size() << "\n";
+            std::cout << "[DEBUG] Prva miestnost nacitana, pocet ciar: " << mistnost.cary.size() << "\n";
 
-            // Ak prva miestnost nema ziadne ciary, skus inu
+            // Ak prva miestnost nema ciary, skus inu
             if (mistnost.cary.empty()) {
                 std::cout << "[DEBUG] Prva miestnost prazdna, skusam '1J_Ctverec'...\n";
                 mistnost.NacteniMistnosti("1J_Ctverec");
-                std::cout << "[DEBUG] Pocet car po rucnom nacitani: " << mistnost.cary.size() << "\n";
+                std::cout << "[DEBUG] Pocet ciar po rucnom nacitani: " << mistnost.cary.size() << "\n";
             }
 
-            // Vypis ciar pre debug
+            // Debug vypis ciar
             for (size_t i = 0; i < mistnost.cary.size() && i < 5; i++) {
-                std::cout << "[DEBUG] Cara " << i << ": ("
+                std::cout << "[DEBUG] Ciara " << i << ": ("
                           << mistnost.cary[i].x1 << "," << mistnost.cary[i].y1 << ") -> ("
                           << mistnost.cary[i].x2 << "," << mistnost.cary[i].y2 << ")\n";
             }
@@ -360,7 +360,7 @@ int main() {
             std::cout << "[DEBUG] Kreslim miestnost...\n";
             kres.NacteniMistnosti(mistnost);
 
-            // Pouzi aktualne statistiky hraca
+            // Aktualne statistiky hraca
             std::string zdravi = std::to_string(playerStats.getHealth());
             std::string bonus = "+" + std::to_string(playerStats.getCombatBonus());
             std::string zlato = std::to_string(playerStats.getGold()) + " gold";
@@ -368,19 +368,15 @@ int main() {
 
             kres.Psani(zdravi, bonus, items, zlato);
 
-            std::cout << "\n[INFO] Animacia bezi... Stlac lubovolnu klavesu pre ukoncenie.\n";
+            std::cout << "\n[INFO] Animacia bezi... Stlac akukolvek klavesu pre ukoncenie.\n";
 
             std::thread t1(Kresleni::VykresleniThread, kres);
 
-            // Pockaj na stlacenie klavesy
             while (!_kbhit()) {
                 std::this_thread::sleep_for(std::chrono::milliseconds(20));
             }
 
-            // Pockaj na ukoncenie vlakna
             t1.join();
-
-            // Vycisti znak z bufferu
             _getch();
 
             std::cout << "\n[INFO] Test kreslenia dokonceny.\n";
