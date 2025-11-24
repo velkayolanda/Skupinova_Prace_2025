@@ -23,7 +23,7 @@ public:
     static void ZiskaniVelikostiConsole(int& columns, int& rows);
     void NacteniMistnosti(Mistnost& mistnost);
     void PsaniStat(std::string Zivoty, std::string BonusD, std::string Item, std::string penize);
-    void PsaniEnemy(std::string Jmeno, std::string Popis);
+    void PsaniEnemy(std::string Jmeno, std::string Popis, std::string souboj);
     void RozmisteniPredmetu(int Mnozstvi);
-
+    void Final(Mistnost& mistnost, std::string PozadovaneD);
 };

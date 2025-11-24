@@ -35,6 +35,7 @@ void Combat::displayRollResult(int roll, int bonus, int total, const std::string
 
 // Hlavni boj
 bool Combat::fight(Enemy& enemy) {
+    this->damage = 0;
     displayCombatStart(enemy);
 
     int playerRoll = rollD20();
@@ -52,6 +53,7 @@ bool Combat::fight(Enemy& enemy) {
     } else {
         int damage = enemy.difficultyNumber; // Jednoduchá logika damage
         playerStats.takeDamage(damage);
+        this->damage = damage;
         std::cout << "Prohrals! Dostals " << damage << " damage.\n";
         return false;
     }

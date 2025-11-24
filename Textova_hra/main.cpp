@@ -23,7 +23,7 @@ int main() {
     std::cout << "========================================\n";
     std::cout << "    DUNGEON CRAWLER - SYSTEM TESTY      \n";
     std::cout << "========================================\n\n";
-
+    Combat::damage = 0;
     // ============================================
     // 0. TEST: KOCKA
     // ============================================
@@ -340,23 +340,23 @@ int main() {
      int* columns, *rows;
         columns = new int;
         rows = new int;
-
+        srand(time(0));
         Kresleni::ZiskaniVelikostiConsole(*columns, *rows);
         Kresleni kres(*columns-1,*rows-1);
 
-        Mistnost mistnost(true);
-        mistnost.VyberMistnost();
-
-        kres.NacteniMistnosti(mistnost);
         std::string zdravi = std::to_string(playerStats.getHealth());
         std::string bonus = "+" + std::to_string(playerStats.getCombatBonus());
         std::string zlato = std::to_string(playerStats.getGold()) + " gold";
         std::string items = std::to_string(playerStats.getInventory().size()) + " items";
-        Enemy orc = getRandomEnemy(2);
-
+        Enemy orc = getRandomEnemy(1);
+        Mistnost mistnost(true);
+        mistnost.VyberMistnost();
+        kres.NacteniMistnosti(mistnost);
         kres.PsaniStat(zdravi, bonus, items, zlato);
-        kres.PsaniEnemy(orc.name, orc.description);
+        kres.PsaniEnemy(orc.name, orc.description,"");
         kres.VykresleniThread(kres);
+
+
         while (true) {
             if (GetAsyncKeyState(VK_LEFT)) {
                 bool testD = false;
@@ -366,15 +366,40 @@ int main() {
                     }
                 }
                 if (testD) {
+                    bool victory;
+                    bool tvorbaN = false;
+                    int nahodatvorban = rand()%10;
+                    if (nahodatvorban>7) {
+                        tvorbaN = false;
+                    }
+                    else {
+                        tvorbaN = true;
+                    }
+                    if (tvorbaN) {
+                        orc = getRandomEnemy(rand()%4);
+                        victory = combat.fight(orc);
+                    }
                     kres.Vymaz();
                     mistnost.VyberMistnost("D_V");
                     kres.NacteniMistnosti(mistnost);
+                    if (tvorbaN) {
+                        if (victory) {
+                            kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
+                        }
+                        else {
+                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::damage) + " damage"));
+                        }
+                    }
+                    else {
+                        kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
+                    }
                     kres.PsaniStat(zdravi, bonus, items, zlato);
                     kres.RozmisteniPredmetu(10);
-                    kres.PsaniEnemy(orc.name , orc.description);
                     kres.VykresleniThread(kres);
                 }
             }
+
+
             else if (GetAsyncKeyState(VK_RIGHT)) {
                 bool testD = false;
                 for (int i = 0; i < mistnost.dvere.size(); i++) {
@@ -383,12 +408,35 @@ int main() {
                     }
                 }
                 if (testD) {
+                    bool victory;
+                    bool tvorbaN = false;
+                    int nahodatvorban = rand()%10;
+                    if (nahodatvorban>7) {
+                        tvorbaN = false;
+                    }
+                    else {
+                        tvorbaN = true;
+                    }
+                    if (tvorbaN) {
+                        orc = getRandomEnemy(rand()%4);
+                        victory = combat.fight(orc);
+                    }
                     kres.Vymaz();
                     mistnost.VyberMistnost("D_Z");
                     kres.NacteniMistnosti(mistnost);
+                    if (tvorbaN) {
+                        if (victory) {
+                            kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
+                        }
+                        else {
+                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::damage) + " damage"));
+                        }
+                    }
+                    else {
+                        kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
+                    }
                     kres.PsaniStat(zdravi, bonus, items, zlato);
                     kres.RozmisteniPredmetu(15);
-                    kres.PsaniEnemy(orc.name , orc.description);
                     kres.VykresleniThread(kres);
                 }
             }
@@ -400,12 +448,35 @@ int main() {
                     }
                 }
                 if (testD) {
+                    bool victory;
+                    bool tvorbaN = false;
+                    int nahodatvorban = rand()%10;
+                    if (nahodatvorban>7) {
+                        tvorbaN = false;
+                    }
+                    else {
+                        tvorbaN = true;
+                    }
+                    if (tvorbaN) {
+                        orc = getRandomEnemy(rand()%4);
+                        victory = combat.fight(orc);
+                    }
                     kres.Vymaz();
                     mistnost.VyberMistnost("D_J");
                     kres.NacteniMistnosti(mistnost);
+                    if (tvorbaN) {
+                        if (victory) {
+                            kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
+                        }
+                        else {
+                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::damage) + " damage"));
+                        }
+                    }
+                    else {
+                        kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
+                    }
                     kres.PsaniStat(zdravi, bonus, items, zlato);
                     kres.RozmisteniPredmetu(20);
-                    kres.PsaniEnemy(orc.name , orc.description);
                     kres.VykresleniThread(kres);
                 }
             }
@@ -417,12 +488,35 @@ int main() {
                     }
                 }
                 if (testD) {
+                    bool victory;
+                    bool tvorbaN = false;
+                    int nahodatvorban = rand()%10;
+                    if (nahodatvorban>7) {
+                        tvorbaN = false;
+                    }
+                    else {
+                        tvorbaN = true;
+                    }
+                    if (tvorbaN) {
+                        orc = getRandomEnemy(rand()%4);
+                        victory = combat.fight(orc);
+                    }
                     kres.Vymaz();
                     mistnost.VyberMistnost("D_S");
                     kres.NacteniMistnosti(mistnost);
+                    if (tvorbaN) {
+                        if (victory) {
+                            kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
+                        }
+                        else {
+                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::damage) + " damage"));
+                        }
+                    }
+                    else {
+                        kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
+                    }
                     kres.PsaniStat(zdravi, bonus, items, zlato);
                     kres.RozmisteniPredmetu(5);
-                    kres.PsaniEnemy(orc.name , orc.description);
                     kres.VykresleniThread(kres);
                 }
             }

@@ -230,10 +230,11 @@ void Kresleni::PsaniStat(std::string Zivoty, std::string BonusD, std::string Ite
 
 }
 
-void Kresleni::PsaniEnemy(std::string Jmeno, std::string Popis) {
+void Kresleni::PsaniEnemy(std::string Jmeno, std::string Popis, std::string Souboj) {
 
     VypisText(Jmeno, minX +5, cy);
     VypisText(Popis, minX+5, cy+1);
+    VypisText(Souboj, minX+5, cy+2);
 }
 
 void Kresleni::RozmisteniPredmetu(int Mnozstvi) {
@@ -257,6 +258,10 @@ void Kresleni::RozmisteniPredmetu(int Mnozstvi) {
     for (int i =0; i<PredmetyP.size();i++) {
         this->Bod(PredmetyP[i].x1, PredmetyP[i].y1, '#');
     }
+}
+
+void Kresleni::Final(Mistnost &mistnost, std::string PozadovaneD) {
+
 }
 
 
