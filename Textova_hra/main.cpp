@@ -23,7 +23,7 @@ int main() {
     std::cout << "========================================\n";
     std::cout << "    DUNGEON CRAWLER - SYSTEM TESTY      \n";
     std::cout << "========================================\n\n";
-    Combat::damage = 0;
+    Combat::enemy_damage = 0;
     // ============================================
     // 0. TEST: KOCKA
     // ============================================
@@ -344,15 +344,12 @@ int main() {
         Kresleni::ZiskaniVelikostiConsole(*columns, *rows);
         Kresleni kres(*columns-1,*rows-1);
 
-        std::string zdravi = std::to_string(playerStats.getHealth());
-        std::string bonus = "+" + std::to_string(playerStats.getCombatBonus());
-        std::string zlato = std::to_string(playerStats.getGold()) + " gold";
-        std::string items = std::to_string(playerStats.getInventory().size()) + " items";
+
         Enemy orc = getRandomEnemy(1);
         Mistnost mistnost(true);
         mistnost.VyberMistnost();
         kres.NacteniMistnosti(mistnost);
-        kres.PsaniStat(zdravi, bonus, items, zlato);
+        kres.PsaniStat(playerStats.getHealth(), playerStats.getCombatBonus(), playerStats.getInventory(), playerStats.getGold());
         kres.PsaniEnemy(orc.name, orc.description,"");
         kres.VykresleniThread(kres);
 
@@ -387,13 +384,13 @@ int main() {
                             kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
                         }
                         else {
-                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::damage) + " damage"));
+                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::enemy_damage) + " damage"));
                         }
                     }
                     else {
                         kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
                     }
-                    kres.PsaniStat(zdravi, bonus, items, zlato);
+                    kres.PsaniStat(playerStats.getHealth(), playerStats.getCombatBonus(), playerStats.getInventory(), playerStats.getGold());
                     kres.RozmisteniPredmetu(10);
                     kres.VykresleniThread(kres);
                 }
@@ -429,13 +426,13 @@ int main() {
                             kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
                         }
                         else {
-                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::damage) + " damage"));
+                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::enemy_damage) + " damage"));
                         }
                     }
                     else {
                         kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
                     }
-                    kres.PsaniStat(zdravi, bonus, items, zlato);
+                    kres.PsaniStat(playerStats.getHealth(), playerStats.getCombatBonus(), playerStats.getInventory(), playerStats.getGold());
                     kres.RozmisteniPredmetu(15);
                     kres.VykresleniThread(kres);
                 }
@@ -469,13 +466,13 @@ int main() {
                             kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
                         }
                         else {
-                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::damage) + " damage"));
+                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::enemy_damage) + " damage"));
                         }
                     }
                     else {
                         kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
                     }
-                    kres.PsaniStat(zdravi, bonus, items, zlato);
+                    kres.PsaniStat(playerStats.getHealth(), playerStats.getCombatBonus(), playerStats.getInventory(), playerStats.getGold());
                     kres.RozmisteniPredmetu(20);
                     kres.VykresleniThread(kres);
                 }
@@ -509,13 +506,13 @@ int main() {
                             kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
                         }
                         else {
-                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::damage) + " damage"));
+                            kres.PsaniEnemy(orc.name , orc.description,("Prohral jsi! Dostal jsi " + std::to_string(Combat::enemy_damage) + " damage"));
                         }
                     }
                     else {
                         kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
                     }
-                    kres.PsaniStat(zdravi, bonus, items, zlato);
+                    kres.PsaniStat(playerStats.getHealth(), playerStats.getCombatBonus(), playerStats.getInventory(), playerStats.getGold());
                     kres.RozmisteniPredmetu(5);
                     kres.VykresleniThread(kres);
                 }

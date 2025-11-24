@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include "dice_roll.h"
-
+int Combat::enemy_damage = 0;
 Combat::Combat(StatBar& stats) : playerStats(stats) {}
 
 // Hod D20
@@ -35,7 +35,7 @@ void Combat::displayRollResult(int roll, int bonus, int total, const std::string
 
 // Hlavni boj
 bool Combat::fight(Enemy& enemy) {
-    this->damage = 0;
+
     displayCombatStart(enemy);
 
     int playerRoll = rollD20();
@@ -51,9 +51,10 @@ bool Combat::fight(Enemy& enemy) {
         collectLoot(enemy);
         return true;
     } else {
+
         int damage = enemy.difficultyNumber; // Jednoduchá logika damage
         playerStats.takeDamage(damage);
-        this->damage = damage;
+        Combat::enemy_damage = damage;
         std::cout << "Prohrals! Dostals " << damage << " damage.\n";
         return false;
     }

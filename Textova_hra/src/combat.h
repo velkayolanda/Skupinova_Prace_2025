@@ -23,7 +23,7 @@ private:
 
 public:
     Combat(StatBar& stats);
-    static int damage;
+    static int enemy_damage;
     // Hlavni funkce boje - vraci true, pokud hrác vyhraje
     bool fight(Enemy& enemy);
 

@@ -1,5 +1,7 @@
 #pragma once
 #include "Mistnost.h"
+#include "loot.h"
+#include <vector>
 
 class Kresleni {
 private:
@@ -22,7 +24,7 @@ public:
     void Vykresleni(const Kresleni& kresleni);
     static void ZiskaniVelikostiConsole(int& columns, int& rows);
     void NacteniMistnosti(Mistnost& mistnost);
-    void PsaniStat(std::string Zivoty, std::string BonusD, std::string Item, std::string penize);
+    void PsaniStat(int Zivoty, int BonusD, std::vector<Item> Item, int penize);
     void PsaniEnemy(std::string Jmeno, std::string Popis, std::string souboj);
     void RozmisteniPredmetu(int Mnozstvi);
     void Final(Mistnost& mistnost, std::string PozadovaneD);
