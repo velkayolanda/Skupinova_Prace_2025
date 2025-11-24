@@ -5,7 +5,11 @@ class Kresleni {
 private:
     int sirka, vyska;
     int sirkaPZ;
+    int cx, cy;
+    int minX, minY, maxX, maxY;
     char** plocha;
+    void VypisText(std::string, int y);
+    void VypisText(std::string, int zacatekx, int zacateky);
 
 public:
     Kresleni(int sirka, int vyska);
@@ -14,12 +18,12 @@ public:
     void Vymaz();
     void Bod(int x, int y, char c);
     void Cara(int x1, int y1, int x2, int y2);
-    static void VykresleniThread(Kresleni kresleni);
+    void VykresleniThread(Kresleni& kresleni);
     void Vykresleni(const Kresleni& kresleni);
     static void ZiskaniVelikostiConsole(int& columns, int& rows);
     void NacteniMistnosti(Mistnost& mistnost);
-    void Psani(std::string Zivoty, std::string BonusD, std::string Item, std::string penize);
-    void VypisText(std::string, int y);
-    void RozmisteniPredmetu();
+    void PsaniStat(std::string Zivoty, std::string BonusD, std::string Item, std::string penize);
+    void PsaniEnemy(std::string Jmeno, std::string Popis);
+    void RozmisteniPredmetu(int Mnozstvi);
 
 };
