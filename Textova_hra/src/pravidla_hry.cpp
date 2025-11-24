@@ -75,6 +75,7 @@ void showMenu() {
         if (volba == 1) {
             printIntro();
             slowPrint("Hra zacala...\n\n", 20);
+            break;
         }
         else if (volba == 2) {
             printRules("pravidla.txt");
