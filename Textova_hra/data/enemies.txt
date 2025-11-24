@@ -13,7 +13,7 @@ Obrovksy pavouk,12,18,2,Obrovsky pavoukovec s jedovatymi tesaky.,Short Sword:Sil
 Vudce banditu,13,22,2,Lstivy zlodej a vudce zdejsich zlocincu.,Battle Axe:Silver Goblet
 
 # TIER 3 - Tezci nepratele (potrebna 16-18 na kill)
-Berserker troll,16,40,3,Obrovsky troll s neuveritelnymi regeneračćnimi schopnostmi.,Enchanted Blade:Steel Armor:Ancient Gem
+Berserker troll,16,40,3,Obrovsky troll s neuveritelnymi regeneracnimi schopnostmi.,Enchanted Blade:Steel Armor:Ancient Gem
 Pan upiru,17,50,3,Staroveky upir s hypnotickymi schopnostmi.,Legendary Sword:Dragon Scale Armor
 Kamenny golem,18,45,3,Masivni stvoreni z zivého kamene.,Enchanted Blade:Steel Armor
 Tajemny vrah,16,42,3,Smrtici zabijak utocici ze stinu noci.,Enchanted Blade:Hero's Elixir

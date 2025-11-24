@@ -7,6 +7,7 @@
 #include "src/combat.h"
 #include "src/StatBar.h"
 #include "src/Kresleni.h"
+#include "src/pravidla_hry.h"
 #include <thread>
 #include <chrono>
 #include <conio.h>
@@ -20,10 +21,8 @@ void waitForEnter() {
 }
 
 int main() {
-    std::cout << "========================================\n";
-    std::cout << "    DUNGEON CRAWLER - SYSTEM TESTY      \n";
-    std::cout << "========================================\n\n";
     Combat::enemy_damage = 0;
+    showMenu();
     // ============================================
     // 0. TEST: KOCKA
     // ============================================

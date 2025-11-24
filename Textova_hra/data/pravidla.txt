@@ -13,7 +13,7 @@ Jakmile vstoupis do mistnosti s nepratelem, automaticky zacne souboj.
 
 Soubojovy system
 
-Tvuj utok se sklada z hodu kostkou (1–20) + bonus z vybaveni.
+Tvuj utok se sklada z hodu kostkou (1 az 20) + bonus z vybaveni.
 
 Nepritel ma svoji obtiznost (target number).
 
@@ -29,7 +29,7 @@ Kazdy porazeny nepritel muze zanechat predmet.
 
 Predmety pridavaji bonusy do souboje nebo ziskavas zlato.
 
-Nektere predmety jsou unikatni nebo vzacne – davaji vyssi bonusy.
+Nektere predmety jsou unikatni nebo vzacne teda davaji vyssi bonusy.
 
 Zlato lze vyuzit u obchodniku (pokud budou implementovani).
 
@@ -39,13 +39,11 @@ Hrac ma maximalni zdravi.
 
 Ruzne predmety nebo udalosti mohou pridat nebo ubrat zdravi.
 
-Sleduj stav sveho zdravi – pokud klesne na nulu, hra konci.
+Sleduj stav sveho zdravi, pokud klesne na nulu, hra konci.
 
-Boss - Drak
+Boss je Kral Demonu
 
-Drak je nejsilnejsi nepritel ve hre.
-
-Jeho porazeni okamzite vyhrava hru.
+Kral Demonu je nejsilnejsi nepritel ve hre.
 
 Pred vstupem do jeho doupete si over, ze mas dostatecne vybaveni a zdravi.
 

@@ -77,11 +77,11 @@ void showMenu() {
             slowPrint("Hra zacala...\n\n", 20);
         }
         else if (volba == 2) {
-            printRules("data/pravidla.txt");
+            printRules("pravidla.txt");
         }
         else if (volba == 3) {
             slowPrint("Ukoncuji hru...\n", 20);
-            break;
+            exit(0);
         }
         else {
             cout << "Neplatna volba.\n";
