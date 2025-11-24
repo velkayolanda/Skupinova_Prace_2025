@@ -21,12 +21,11 @@ class Mistnost {
     private:
     std::vector<Mistnost> Mistnosti;
     std::map<std::string, structMistnost> txtmistnost;
-
     bool prvni;
 
     public:
-    std::string NacteniMistnosti(std::string PozadovanaM);
-    std::string dvere;
+    void NacteniMistnosti(std::string PozadovanaM);
+    std::vector<std::string>dvere;
     std::vector<Pozice> cary;
     std::vector<std::string> stxtmistnost;
 
