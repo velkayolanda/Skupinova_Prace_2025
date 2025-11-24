@@ -220,7 +220,7 @@ void Kresleni::VypisText(std::string Text, int zacatekx, int zacateky) {
     }
 }
 
-void Kresleni::PsaniStat(int Zivoty, int BonusD, std::vector<Item> Item, int penize) {
+void Kresleni::PsaniStat(std::string Zivoty, std::string BonusD, std::vector<Item> Item, std::string penize) {
 
     std::vector<std::string> text= {"Statistika: ", "Mas zivotu: " + Zivoty,"Bonus damage: " + BonusD, "Penize: " + penize, "Inventar:"};
     for (int i=0; i<Item.size();i++) {
