@@ -1,23 +1,23 @@
 # Format: name,combatBonus,value,type
 # Zbrane
-Rusty Dagger,1,5,weapon
-Short Sword,2,15,weapon
-Battle Axe,3,30,weapon
-Enchanted Blade,4,50,weapon
-Legendary Sword,5,100,weapon
+Rezava dyka,1,5,zbran
+Kratky mec,2,15,zbran
+Bojova sekera,3,30,zbran
+Magicky posilena cepel,,4,50,zbran
+Legendarni mec,5,100,zbran
 
-# Armour
-Leather Vest,1,10,armor
-Chainmail,2,25,armor
-Steel Armor,3,45,armor
-Dragon Scale Armor,4,80,armor
+# Zbroj
+Kozena vesta,1,10,zbroj
+Krouzkova zbroj,2,25,zbroj
+Ocelové brneni,3,45,zbroj
+Zbroj z dracich supin,4,80,zbroj
 
 # Potecka
-Strength Potion,2,20,potion
-Hero's Elixir,3,35,potion
+Elixir sily,2,20,potecko
+Elixir hrdiny,3,35,potecko
 
 # Poklady
-Gold Coins,0,10,treasure
-Silver Goblet,0,25,treasure
-Ancient Gem,0,50,treasure
-Dragon's Hoard,0,100,treasure
+Zlataky,0,10,trezor
+Stribrny pohar,0,25,trezor
+Staroveky drahokam,0,50,trezor
+Draci poklad,0,100,trezor

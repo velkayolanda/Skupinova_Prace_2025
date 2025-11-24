@@ -11,152 +11,152 @@
 std::vector<Enemy> getHardcodedEnemies() {
     std::vector<Enemy> enemies;
 
-    // TIER 1 - Easy enemies
+    // TIER 1 - Snadni nepratele
     Enemy rat;
-    rat.name = "Giant Rat";
+    rat.name = "Obrovska krysa";
     rat.difficultyNumber = 8;
     rat.goldReward = 5;
     rat.tier = 1;
-    rat.possibleLootNames = {"Rusty Dagger","Gold Coins"};
-    rat.description = "A large diseased rat with glowing red eyes.";
+    rat.possibleLootNames = {"Rezava dyka","Zlataky"};
+    rat.description = "Obrovska krysa s rude zaricima ocima.";
     enemies.push_back(rat);
 
     Enemy goblin;
-    goblin.name = "Goblin Scout";
+    goblin.name = "Goblin pruzkumnik";
     goblin.difficultyNumber = 9;
     goblin.goldReward = 8;
     goblin.tier = 1;
-    goblin.possibleLootNames = {"Rusty Dagger","Short Sword"};
-    goblin.description = "A small green goblin armed with a crude club.";
+    goblin.possibleLootNames = {"Rezava dyka","Kratky mec"};
+    goblin.description = "Maly zeleny skret s primitivnim kyjem.";
     enemies.push_back(goblin);
 
     Enemy skeleton;
-    skeleton.name = "Skeleton Warrior";
+    skeleton.name = "Padly valecnik";
     skeleton.difficultyNumber = 10;
     skeleton.goldReward = 10;
     skeleton.tier = 1;
-    skeleton.possibleLootNames = {"Short Sword", "Leather Vest"};
-    skeleton.description = "An animated skeleton wielding rusty weapons.";
+    skeleton.possibleLootNames = {"Kratky mec", "Kozena vesta"};
+    skeleton.description = "Ozivly kostlivec ozbrojeny rezavymi zbranemi.";
     enemies.push_back(skeleton);
 
     Enemy wolf;
-    wolf.name = "Wild Wolf";
+    wolf.name = "Divoky vlk";
     wolf.difficultyNumber = 9;
     wolf.goldReward = 7;
     wolf.tier = 1;
-    wolf.possibleLootNames = {"Leather Vest", "Gold Coins"};
-    wolf.description = "A hungry wolf with sharp fangs.";
+    wolf.possibleLootNames = {"Kozena vesta", "Zlataky"};
+    wolf.description = "Hladový vlk s ostrými tesáky.";
     enemies.push_back(wolf);
 
-    // TIER 2 - Medium enemies
+    // TIER 2 - Stredny nepratele
     Enemy orc;
-    orc.name = "Orc Marauder";
+    orc.name = "Rabujici Orc";
     orc.difficultyNumber = 12;
     orc.goldReward = 20;
     orc.tier = 2;
-    orc.possibleLootNames = {"Battle Axe","Chainmail"};
-    orc.description = "A brutish orc warrior covered in battle scars.";
+    orc.possibleLootNames = {"Bojova sekera","Krouzkova zbroj"};
+    orc.description = "Brutalni orksky valecnik pokryty bitevnimi jizvami.";
     enemies.push_back(orc);
 
     Enemy mage;
-    mage.name = "Dark Mage";
+    mage.name = "Temny carodej";
     mage.difficultyNumber = 13;
     mage.goldReward = 25;
     mage.tier = 2;
-    mage.possibleLootNames = {"Enchanted Blade","Strength Potion"};
-    mage.description = "A robed figure crackling with dark magic.";
+    mage.possibleLootNames = {"Magicky posilena cepel","Elixir sily"};
+    mage.description = "Postava halena v rouchu obklopena praskajici temnou magii.";
     enemies.push_back(mage);
 
     Enemy knight;
-    knight.name = "Cursed Knight";
+    knight.name = "Zaklety rytir";
     knight.difficultyNumber = 14;
     knight.goldReward = 30;
     knight.tier = 2;
-    knight.possibleLootNames = {"Battle Axe","Steel Armor"};
-    knight.description = "A fallen knight bound by dark magic.";
+    knight.possibleLootNames = {"Bojova sekera","Ocelové brneni"};
+    knight.description = "Padly rytir spoutany temnou magii.";
     enemies.push_back(knight);
 
     Enemy spider;
-    spider.name = "Giant Spider";
+    spider.name = "Obrovksy pavouk";
     spider.difficultyNumber = 12;
     spider.goldReward = 18;
     spider.tier = 2;
-    spider.possibleLootNames = {"Short Sword","Silver Goblet"};
-    spider.description = "A massive arachnid with venomous fangs.";
+    spider.possibleLootNames = {"Kratky mec","Stribrny pohar"};
+    spider.description = "Obrovsky pavoukovec s jedovatymi tesaky.";
     enemies.push_back(spider);
 
     Enemy bandit;
-    bandit.name = "Bandit Leader";
+    bandit.name = "Vudce banditu";
     bandit.difficultyNumber = 13;
     bandit.goldReward = 22;
     bandit.tier = 2;
-    bandit.possibleLootNames = {"Battle Axe", "Silver Goblet"};
-    bandit.description = "A cunning thief who leads a band of outlaws.";
+    bandit.possibleLootNames = {"Bojova sekera", "Stribrny pohar"};
+    bandit.description = "Lstivy zlodej a vudce zdejsich zlocincu.";
     enemies.push_back(bandit);
 
-    // TIER 3 - Hard enemies
+    // TIER 3 - Tezci nepratele
     Enemy troll;
-    troll.name = "Troll Berserker";
+    troll.name = "Berserker troll";
     troll.difficultyNumber = 16;
     troll.goldReward = 40;
     troll.tier = 3;
-    troll.possibleLootNames = {"Enchanted Blade","Steel Armor","Ancient Gem"};
-    troll.description = "A massive troll with incredible regenerative powers.";
+    troll.possibleLootNames = {"Magicky posilena cepel","Ocelové brneni","Staroveky drahokam"};
+    troll.description = "Obrovsky troll s neuveritelnymi regeneračćnimi schopnostmi.";
     enemies.push_back(troll);
 
     Enemy vampire;
-    vampire.name = "Vampire Lord";
+    vampire.name = "Pan upiru";
     vampire.difficultyNumber = 17;
     vampire.goldReward = 50;
     vampire.tier = 3;
-    vampire.possibleLootNames = {"Legendary Sword", "Dragon Scale Armor"};
-    vampire.description = "An ancient vampire with hypnotic powers.";
+    vampire.possibleLootNames = {"Legendarni mec", "Zbroj z dracich supin"};
+    vampire.description = "Staroveky upir s hypnotickymi schopnostmi.";
     enemies.push_back(vampire);
 
     Enemy golem;
-    golem.name = "Stone Golem";
+    golem.name = "Kamenny golem";
     golem.difficultyNumber = 18;
     golem.goldReward = 45;
     golem.tier = 3;
-    golem.possibleLootNames = {"Enchanted Blade","Steel Armor"};
-    golem.description = "A massive construct of living stone.";
+    golem.possibleLootNames = {"Magicky posilena cepel","Ocelové brneni"};
+    golem.description = "Masivni stvoreni z zivého kamene.";
     enemies.push_back(golem);
 
     Enemy assassin;
-    assassin.name = "Shadow Assassin";
+    assassin.name = "Tajemny vrah";
     assassin.difficultyNumber = 16;
     assassin.goldReward = 42;
     assassin.tier = 3;
-    assassin.possibleLootNames = {"Enchanted Blade", "Hero's Elixir"};
-    assassin.description = "A deadly killer who strikes from the shadows.";
+    assassin.possibleLootNames = {"Magicky posilena cepel", "Elixir hrdiny"};
+    assassin.description = "Smrtici zabijak utocici ze stinu noci.";
     enemies.push_back(assassin);
 
     // TIER 4 - Boss enemies
     Enemy dragon;
-    dragon.name = "Ancient Dragon";
+    dragon.name = "Staroveky drak";
     dragon.difficultyNumber = 20;
     dragon.goldReward = 100;
     dragon.tier = 4;
-    dragon.possibleLootNames = {"Legendary Sword", "Dragon Scale Armor","Dragon's Hoard"};
-    dragon.description = "A legendary dragon with scales like steel.";
+    dragon.possibleLootNames = {"Legendarni mec", "Zbroj z dracich supin","Draci poklad"};
+    dragon.description = "Legendarni drak se supinami jako ocel.";
     enemies.push_back(dragon);
 
     Enemy demon;
-    demon.name = "Demon King";
+    demon.name = "Kral demonu";
     demon.difficultyNumber = 22;
     demon.goldReward = 120;
     demon.tier = 4;
-    demon.possibleLootNames = {"Legendary Sword","Dragon Scale Armor","Dragon's Hoard"};
-    demon.description = "The ruler of the underworld, wreathed in flames.";
+    demon.possibleLootNames = {"Legendarni mec","Zbroj z dracich supin","Draci poklad"};
+    demon.description = "Vladce podsveti zahaleny v plamenech.";
     enemies.push_back(demon);
 
     Enemy lich;
-    lich.name = "Lich Overlord";
+    lich.name = "Mocny nemrtvi carodej";
     lich.difficultyNumber = 21;
     lich.goldReward = 110;
     lich.tier = 4;
-    lich.possibleLootNames = {"Legendary Sword","Dragon Scale Armor", "Dragon's Hoard"};
-    lich.description = "An undead sorcerer of immense power.";
+    lich.possibleLootNames = {"Legendarni mec","Zbroj z dracich supin", "Draci poklad"};
+    lich.description = "Carodej, ktery dosahl na vecny zivot.";
     enemies.push_back(lich);
 
     return enemies;
@@ -234,28 +234,28 @@ std::vector<Item> loadItemsFromFile(const std::string& filename) {
 
 std::vector<Item> getAllItems() {
     return {
-        // Weapons
-        {"Rusty Dagger", 1, 5, "weapon"},
-        {"Short Sword", 2, 15, "weapon"},
-        {"Battle Axe", 3, 30, "weapon"},
-        {"Enchanted Blade", 4, 50, "weapon"},
-        {"Legendary Sword", 5, 100, "weapon"},
+        // Zbrane
+        {"Rezava dyka", 1, 5, "zbran"},
+        {"Kratky mec", 2, 15, "zbran"},
+        {"Bojova sekera", 3, 30, "zbran"},
+        {"Magicky posilena cepel", 4, 50, "zbran"},
+        {"Legendarni mec", 5, 100, "zbran"},
 
-        // Armor
-        {"Leather Vest", 1, 10, "armor"},
-        {"Chainmail", 2, 25, "armor"},
-        {"Steel Armor", 3, 45, "armor"},
-        {"Dragon Scale Armor", 4, 80, "armor"},
+        // Zbroj
+        {"Kozena vesta", 1, 10, "zbroj"},
+        {"Krouzkova zbroj", 2, 25, "zbroj"},
+        {"Ocelové brneni", 3, 45, "zbroj"},
+        {"Zbroj z dracich supin", 4, 80, "zbroj"},
 
-        // Potions
-        {"Strength Potion", 2, 20, "potion"},
-        {"Hero's Elixir", 3, 35, "potion"},
+        // Potecka
+        {"Elixir sily", 2, 20, "potecko"},
+        {"Elixir hrdiny", 3, 35, "potecko"},
 
         // Treasures
-        {"Gold Coins", 0, 10, "treasure"},
-        {"Silver Goblet", 0, 25, "treasure"},
-        {"Ancient Gem", 0, 50, "treasure"},
-        {"Dragon's Hoard", 0, 100, "treasure"}
+        {"Zlataky", 0, 10, "trezor"},
+        {"Stribrny pohar", 0, 25, "trezor"},
+        {"Staroveky drahokam", 0, 50, "trezor"},
+        {"Draci poklad", 0, 100, "trezor"}
     };
 }
 
@@ -284,12 +284,12 @@ Enemy getRandomEnemy(int tier) {
 
         // Poslední fallback - vytvoř základního nepřítele
         Enemy fallback;
-        fallback.name = "Rat";
+        fallback.name = "Krysa";
         fallback.difficultyNumber = 8;
         fallback.goldReward = 5;
         fallback.tier = 1;
-        fallback.possibleLootNames = {"Rusty Dagger"};
-        fallback.description = "A simple rat.";
+        fallback.possibleLootNames = {"Rezava dyka"};
+        fallback.description = "Bezna krysa.";
         return fallback;
     }
 
@@ -310,7 +310,7 @@ int calculateCombatBonus(const std::vector<Item>& inventory) {
 
 Item getEnemyLootDrop(const Enemy& enemy) {
     if (enemy.possibleLootNames.empty()) {
-        return {"Nothing", 0, 0, "empty"};
+        return {"Nic", 0, 0, "prazdne"};
     }
 
     static std::random_device rd;
@@ -331,5 +331,5 @@ Item getEnemyLootDrop(const Enemy& enemy) {
         return allItems[0];
     }
 
-    return {"Nothing", 0, 0, "empty"};
+    return {"Nic", 0, 0, "prazdne"};
 }

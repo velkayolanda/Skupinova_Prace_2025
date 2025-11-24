@@ -1,24 +1,24 @@
 # Format: name,difficultyNumber,goldReward,tier,description,lootItem1:lootItem2:lootItem3
-# TIER 1 - Lahky enemaci (potrebna 8-10 na kill)
-Giant Rat,8,5,1,A large diseased rat with glowing red eyes.,Rusty Dagger:Gold Coins
-Goblin Scout,9,8,1,A small green goblin armed with a crude club.,Rusty Dagger:Short Sword
-Skeleton Warrior,10,10,1,An animated skeleton wielding rusty weapons.,Short Sword:Leather Vest
-Wild Wolf,9,7,1,A hungry wolf with sharp fangs.,Leather Vest:Gold Coins
+# TIER 1 - Snadni nepratele (potrebna 8-10 na kill)
+Obrovska krysa,8,5,1,Obrovska krysa s rude zaricima ocima.,Rusty Dagger:Gold Coins
+Goblin pruzkumnik,9,8,1,Maly zeleny skret s primitivnim kyjem.,Rusty Dagger:Short Sword
+Padly valecnik,10,10,1,Ozivly kostlivec ozbrojeny rezavymi zbranemi.,Short Sword:Leather Vest
+Divoky vlk,9,7,1,Hladový vlk s ostrými tesáky.,Leather Vest:Gold Coins
 
-# TIER 2 - Stredny enemaci (potrebna 12-14 na kill)
-Orc Marauder,12,20,2,A brutish orc warrior covered in battle scars.,Battle Axe:Chainmail
-Dark Mage,13,25,2,A robed figure crackling with dark magic.,Enchanted Blade:Strength Potion
-Cursed Knight,14,30,2,A fallen knight bound by dark magic.,Battle Axe:Steel Armor
-Giant Spider,12,18,2,A massive arachnid with venomous fangs.,Short Sword:Silver Goblet
-Bandit Leader,13,22,2,A cunning thief who leads a band of outlaws.,Battle Axe:Silver Goblet
+# TIER 2 - Stredny nepratele (potrebna 12-14 na kill)
+Rabujici Orc,12,20,2,Brutalni orksky valecnik pokryty bitevnimi jizvami.,Battle Axe:Chainmail
+Temny carodej,13,25,2,Postava halena v rouchu obklopena praskajici temnou magii.,Enchanted Blade:Strength Potion
+Zaklety rytir,14,30,2,Padly rytir spoutany temnou magii.,Battle Axe:Steel Armor
+Obrovksy pavouk,12,18,2,Obrovsky pavoukovec s jedovatymi tesaky.,Short Sword:Silver Goblet
+Vudce banditu,13,22,2,Lstivy zlodej a vudce zdejsich zlocincu.,Battle Axe:Silver Goblet
 
-# TIER 3 - Tazky enemaci (potrebna 16-18 na kill)
-Troll Berserker,16,40,3,A massive troll with incredible regenerative powers.,Enchanted Blade:Steel Armor:Ancient Gem
-Vampire Lord,17,50,3,An ancient vampire with hypnotic powers.,Legendary Sword:Dragon Scale Armor
-Stone Golem,18,45,3,A massive construct of living stone.,Enchanted Blade:Steel Armor
-Shadow Assassin,16,42,3,A deadly killer who strikes from the shadows.,Enchanted Blade:Hero's Elixir
+# TIER 3 - Tezci nepratele (potrebna 16-18 na kill)
+Berserker troll,16,40,3,Obrovsky troll s neuveritelnymi regeneračćnimi schopnostmi.,Enchanted Blade:Steel Armor:Ancient Gem
+Pan upiru,17,50,3,Staroveky upir s hypnotickymi schopnostmi.,Legendary Sword:Dragon Scale Armor
+Kamenny golem,18,45,3,Masivni stvoreni z zivého kamene.,Enchanted Blade:Steel Armor
+Tajemny vrah,16,42,3,Smrtici zabijak utocici ze stinu noci.,Enchanted Blade:Hero's Elixir
 
 # TIER 4 - Boss (potrebna 20+ na kill)
-Ancient Dragon,20,100,4,A legendary dragon with scales like steel.,Legendary Sword:Dragon Scale Armor:Dragon's Hoard
-Demon King,22,120,4,The ruler of the underworld wreathed in flames.,Legendary Sword:Dragon Scale Armor:Dragon's Hoard
-Lich Overlord,21,110,4,An undead sorcerer of immense power.,Legendary Sword:Dragon Scale Armor:Dragon's Hoard
+Staroveky drak,20,100,4,Legendarni drak se supinami jako ocel.,Legendary Sword:Dragon Scale Armor:Dragon's Hoard
+Kral demonu,22,120,4,Vladce podsveti zahaleny v plamenech.,Legendary Sword:Dragon Scale Armor:Dragon's Hoard
+Mocny nemrtvi carodej,21,110,4,Carodej, ktery dosahl na vecny zivot.,Legendary Sword:Dragon Scale Armor:Dragon's Hoard

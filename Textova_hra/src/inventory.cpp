@@ -190,43 +190,43 @@ int inventory::getGold() const {
 }
 
 void inventory::display() const {
-    std::cout << "===== INVENTORY =====\n";
-    std::cout << "Gold: " << gold_ << "\n\n";
+    std::cout << "===== INVENTAR =====\n";
+    std::cout << "Zlato: " << gold_ << "\n\n";
 
-    std::cout << "Equipped (slots: " << equipSlots_ << "):\n";
+    std::cout << "Vybaveni (mista: " << equipSlots_ << "):\n";
     for (int i = 0; i < equipSlots_; ++i) {
         std::cout << " [" << i << "] ";
         if (equipped_[i].has_value()) {
             const InventoryItem &it = equipped_[i].value();
-            std::cout << it.name << " (+" << it.combatBonus << " combat)";
+            std::cout << it.name << " (+" << it.combatBonus << " bojovy bonus)";
         } else {
-            std::cout << "(empty)";
+            std::cout << "(prazdne)";
         }
         std::cout << "\n";
     }
 
-    std::cout << "\nWeapons (slots: " << maxWeapons_ << "):\n";
-    if (weapons_.empty()) std::cout << "  (none)\n";
+    std::cout << "\nZbrane (mista: " << maxWeapons_ << "):\n";
+    if (weapons_.empty()) std::cout << "  (prazdne)\n";
     for (const auto &w: weapons_) {
         std::cout << "  - " << w.name << " x" << w.quantity
                   << " (+" << w.combatBonus << ")\n";
     }
 
-    std::cout << "\nArmors (slots: " << maxArmors_ << "):\n";
-    if (armors_.empty()) std::cout << "  (none)\n";
+    std::cout << "\nZbroj (mista: " << maxArmors_ << "):\n";
+    if (armors_.empty()) std::cout << "  (prazdne)\n";
     for (const auto &a: armors_) {
         std::cout << "  - " << a.name << " x" << a.quantity
                   << " (+" << a.combatBonus << ")\n";
     }
 
-    std::cout << "\nPotions (slots: " << maxPotions_ << "):\n";
-    if (potions_.empty()) std::cout << "  (none)\n";
+    std::cout << "\nPotecka (mista: " << maxPotions_ << "):\n";
+    if (potions_.empty()) std::cout << "  (prazdne)\n";
     for (const auto &p: potions_) {
         std::cout << "  - " << p.name << " x" << p.quantity << "\n";
     }
 
     std::cout << "\nMisc:\n";
-    if (misc_.empty()) std::cout << "  (none)\n";
+    if (misc_.empty()) std::cout << "  (prazdne)\n";
     for (const auto &m: misc_) {
         std::cout << "  - " << m.name << " x" << m.quantity << "\n";
     }
@@ -247,11 +247,11 @@ bool inventory::addLoot(const ::Item& loot) {
 
     // Mapuj typ
     ItemType mappedType = ItemType::Misc;
-    if (t == "zbrane" || t == "weapon" || t == "weapons") {
+    if (t == "zbrane" || t == "Zbrane"|| t == "weapon" || t == "weapons") {
         mappedType = ItemType::Weapon;
     } else if (t == "potecka" || t == "potion" || t == "potions") {
         mappedType = ItemType::Potion;
-    } else if (t == "armour" || t == "armor") {
+    } else if (t == "zbroj" || t == "Zbroj" || t == "armor") {
         mappedType = ItemType::Armor;
     }
 
