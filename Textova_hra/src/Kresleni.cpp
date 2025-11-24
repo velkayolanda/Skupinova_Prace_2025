@@ -65,8 +65,14 @@ void Kresleni::Cara(int x1, int y1, int x2, int y2)
             }
         }
     } else if (y1 == y2) {
-        for (int x = std::min(x1, x2); x <= std::max(x1, x2); ++x)
-            plocha[y1][x] = '-';
+        for (int x = std::min(x1, x2); x <= std::max(x1, x2); ++x) {
+            if (x == std::min(x1, x2) || x == std::max(x1, x2)) {
+                plocha[y1][x] = '+';
+            }
+            else {
+                plocha[y1][x] = '-';
+            }
+        }
     }
 }
 
