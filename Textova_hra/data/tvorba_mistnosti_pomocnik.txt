@@ -1,0 +1,27 @@
+cara plna S
+C;0,10;0,0
+
+cara plna V
+C;10,10;0,5
+
+cara plna J
+C;0,10;5,5
+
+cara plna Z
+C;0,0;0,5
+
+cara dvere S
+C;0,3;0,0
+C;7,10;0,0
+
+cara dvere V
+C;10,10;0,2
+C;10,10;4,5
+
+cara dvere J
+C;0,3;5,5
+C;7,10;5,5
+
+cara dvere Z
+C;0,0;0,2
+C;0,0;4,5
