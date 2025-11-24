@@ -378,6 +378,7 @@ int main() {
                     kres.Vymaz();
                     mistnost.VyberMistnost("D_V");
                     kres.NacteniMistnosti(mistnost);
+                    kres.RozmisteniPredmetu(15);
                     if (tvorbaN) {
                         if (victory) {
                             kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
@@ -419,6 +420,7 @@ int main() {
                     kres.Vymaz();
                     mistnost.VyberMistnost("D_Z");
                     kres.NacteniMistnosti(mistnost);
+                    kres.RozmisteniPredmetu(15);
                     if (tvorbaN) {
                         if (victory) {
                             kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
@@ -431,7 +433,6 @@ int main() {
                         kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
                     }
                     kres.PsaniStat(std::to_string(playerStats.getHealth()), std::to_string(playerStats.getCombatBonus()), playerStats.getInventory(), std::to_string(playerStats.getGold()));
-                    kres.RozmisteniPredmetu(15);
                     kres.VykresleniThread(kres);
                 }
             }
@@ -459,6 +460,7 @@ int main() {
                     kres.Vymaz();
                     mistnost.VyberMistnost("D_J");
                     kres.NacteniMistnosti(mistnost);
+                    kres.RozmisteniPredmetu(15);
                     if (tvorbaN) {
                         if (victory) {
                             kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
@@ -471,7 +473,6 @@ int main() {
                         kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
                     }
                     kres.PsaniStat(std::to_string(playerStats.getHealth()), std::to_string(playerStats.getCombatBonus()), playerStats.getInventory(), std::to_string(playerStats.getGold()));
-                    kres.RozmisteniPredmetu(20);
                     kres.VykresleniThread(kres);
                 }
             }
@@ -499,6 +500,7 @@ int main() {
                     kres.Vymaz();
                     mistnost.VyberMistnost("D_S");
                     kres.NacteniMistnosti(mistnost);
+                    kres.RozmisteniPredmetu(15);
                     if (tvorbaN) {
                         if (victory) {
                             kres.PsaniEnemy(orc.name , orc.description, "Vyhral jsi!");
@@ -511,7 +513,6 @@ int main() {
                         kres.PsaniEnemy(orc.name , orc.description, "Mistnost je prazdna!");
                     }
                     kres.PsaniStat(std::to_string(playerStats.getHealth()), std::to_string(playerStats.getCombatBonus()), playerStats.getInventory(), std::to_string(playerStats.getGold()));
-                    kres.RozmisteniPredmetu(5);
                     kres.VykresleniThread(kres);
                 }
             }
