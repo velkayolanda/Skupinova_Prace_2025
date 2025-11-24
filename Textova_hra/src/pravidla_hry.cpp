@@ -77,7 +77,7 @@ void showMenu() {
             slowPrint("Hra zacala...\n\n", 20);
         }
         else if (volba == 2) {
-            printRules("pravidla.txt");
+            printRules("data/pravidla.txt");
         }
         else if (volba == 3) {
             slowPrint("Ukoncuji hru...\n", 20);
