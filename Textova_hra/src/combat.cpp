@@ -4,9 +4,18 @@
 
 #include "combat.h"
 #include <iostream>
-
 #include "dice_roll.h"
+
+// Inicializace statických proměnných
 int Combat::enemy_damage = 0;
+int Combat::last_player_roll = 0;
+int Combat::last_player_bonus = 0;
+int Combat::last_player_total = 0;
+int Combat::last_enemy_roll = 0;
+int Combat::last_enemy_bonus = 0;
+int Combat::last_enemy_total = 0;
+bool Combat::last_battle_won = false;
+
 Combat::Combat(StatBar& stats) : playerStats(stats) {}
 
 // Hod D20
@@ -35,27 +44,40 @@ void Combat::displayRollResult(int roll, int bonus, int total, const std::string
 
 // Hlavni boj
 bool Combat::fight(Enemy& enemy) {
-
     displayCombatStart(enemy);
 
     int playerRoll = rollD20();
-    int playerTotal = playerRoll + calculateTotalCombatBonus();
-    displayRollResult(playerRoll, calculateTotalCombatBonus(), playerTotal, "Player");
+    int playerBonus = calculateTotalCombatBonus();
+    int playerTotal = playerRoll + playerBonus;
 
     int enemyRoll = rollD20();
-    int enemyTotal = enemyRoll + enemy.difficultyNumber;
-    displayRollResult(enemyRoll, enemy.difficultyNumber, enemyTotal, "Enemy");
+    int enemyBonus = enemy.difficultyNumber;
+    int enemyTotal = enemyRoll + enemyBonus;
+
+    // ULOŽENÍ VÝSLEDKŮ do statických proměnných
+    last_player_roll = playerRoll;
+    last_player_bonus = playerBonus;
+    last_player_total = playerTotal;
+    last_enemy_roll = enemyRoll;
+    last_enemy_bonus = enemyBonus;
+    last_enemy_total = enemyTotal;
+
+    displayRollResult(playerRoll, playerBonus, playerTotal, "Player");
+    displayRollResult(enemyRoll, enemyBonus, enemyTotal, "Enemy");
 
     if (playerTotal >= enemyTotal) {
         //std::cout << "Vyhrals!\n";
+        std::cout << "Vyhrals!\n";
+        last_battle_won = true;
         collectLoot(enemy);
         return true;
     } else {
-
-        int damage = enemy.difficultyNumber; // Jednoduchá logika damage
+        int damage = enemy.difficultyNumber;
         playerStats.takeDamage(damage);
         Combat::enemy_damage = damage;
         //std::cout << "Prohrals! Dostals " << damage << " damage.\n";
+        last_battle_won = false;
+        std::cout << "Prohrals! Dostals " << damage << " damage.\n";
         return false;
     }
 }
@@ -74,12 +96,12 @@ void Combat::collectLoot(const Enemy& enemy) {
 
         // Kontrola, jestli není "Nothing"
         if (loot.name != "Nothing" && loot.type != "empty") {
-            // Loot z enemy_types.h vrací globální Item
-            // Musíme ho přidat do StatBar inventáře
             playerStats.addItem(loot);
 
           //  std::cout << "Dostals loot: " << loot.name
             //          << " (+" << loot.combatBonus << " combat bonus)\n";
+            std::cout << "Dostals loot: " << loot.name
+                      << " (+" << loot.combatBonus << " combat bonus)\n";
         }
     }
 }

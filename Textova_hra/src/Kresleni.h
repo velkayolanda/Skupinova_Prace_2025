@@ -2,6 +2,7 @@
 #include "Mistnost.h"
 #include "loot.h"
 #include <vector>
+#include <string>
 
 class Kresleni {
 private:
@@ -10,6 +11,12 @@ private:
     int cx, cy;
     int minX, minY, maxX, maxY;
     char** plocha;
+
+    // NOVÉ: Uložení výsledků posledního boje
+    std::string lastPlayerRoll;
+    std::string lastEnemyRoll;
+    std::string lastBattleResult;
+
     void VypisText(std::string, int y);
     void VypisText(std::string, int zacatekx, int zacateky);
 
@@ -28,4 +35,9 @@ public:
     void PsaniEnemy(std::string Jmeno, std::string Popis, std::string souboj);
     void RozmisteniPredmetu(int Mnozstvi);
     void Final(Mistnost& mistnost, std::string PozadovaneD);
+
+    void NastavVysledkyBoje(int playerRoll, int playerBonus, int playerTotal,
+                           int enemyRoll, int enemyBonus, int enemyTotal,
+                           bool victory);
+    void VymazVysledkyBoje(); // Pro vymazání po přechodu do další místnosti
 };

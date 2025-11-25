@@ -3,6 +3,7 @@
 //
 
 #include "Kresleni.h"
+#include "combat.h"
 #include <chrono>
 #include <iostream>
 #include <thread>
@@ -221,15 +222,29 @@ void Kresleni::VypisText(std::string Text, int zacatekx, int zacateky) {
 }
 
 void Kresleni::PsaniStat(std::string Zivoty, std::string BonusD, std::vector<Item> Item, std::string penize) {
+    std::vector<std::string> text = {
+        "Statistika: ",
+        "Mas zivotu: " + Zivoty,
+        "Bonus damage: " + BonusD,
+        "Penize: " + penize,
+        "Inventar:"
+    };
 
-    std::vector<std::string> text= {"Statistika: ", "Mas zivotu: " + Zivoty,"Bonus damage: " + BonusD, "Penize: " + penize, "Inventar:"};
-    for (int i=0; i<Item.size();i++) {
+    for (int i = 0; i < Item.size(); i++) {
         text.push_back("Item: " + Item[i].name);
     }
-    for (int i=0; i<text.size();i++) {
-        VypisText(text[i],i);
+
+    if (!lastPlayerRoll.empty()) {
+        text.push_back(""); // prázdný řádek
+        text.push_back("=== POSLEDNY BOJ ===");
+        text.push_back(lastPlayerRoll);
+        text.push_back(lastEnemyRoll);
+        text.push_back(lastBattleResult);
     }
 
+    for (int i = 0; i < text.size(); i++) {
+        VypisText(text[i], i);
+    }
 }
 
 void Kresleni::PsaniEnemy(std::string Jmeno, std::string Popis, std::string Souboj) {
@@ -264,6 +279,21 @@ void Kresleni::RozmisteniPredmetu(int Mnozstvi) {
 
 void Kresleni::Final(Mistnost &mistnost, std::string PozadovaneD) {
 
+}
+void Kresleni::NastavVysledkyBoje(int playerRoll, int playerBonus, int playerTotal, int enemyRoll, int enemyBonus, int enemyTotal,bool victory) {
+    lastPlayerRoll = "Hrac: d20=" + std::to_string(playerRoll) + " +bon=" + std::to_string(playerBonus) + " =" + std::to_string(playerTotal);
+
+    lastEnemyRoll = "Enemy: d20=" + std::to_string(enemyRoll) +
+                    " +bon=" + std::to_string(enemyBonus) +
+                    " =" + std::to_string(enemyTotal);
+
+    lastBattleResult = victory ? ">>> VYHRAL <<<" : ">>> PROHRAL <<<";
+}
+
+void Kresleni::VymazVysledkyBoje() {
+    lastPlayerRoll = "";
+    lastEnemyRoll = "";
+    lastBattleResult = "";
 }
 
 

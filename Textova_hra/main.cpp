@@ -116,6 +116,20 @@ int main() {
                     if (tvorbaNepritele) {
                         currentEnemy = getRandomEnemy(rand() % 4 + 1);
                         victory = combat.fight(currentEnemy);
+                        if (tvorbaNepritele) {
+                            currentEnemy = getRandomEnemy(rand() % 4 + 1);
+                            victory = combat.fight(currentEnemy);
+
+                            kres.NastavVysledkyBoje(
+                                Combat::last_player_roll,
+                                Combat::last_player_bonus,
+                                Combat::last_player_total,
+                                Combat::last_enemy_roll,
+                                Combat::last_enemy_bonus,
+                                Combat::last_enemy_total,
+                                Combat::last_battle_won
+                            );
+                        }
                     }
 
                     kres.Vymaz();
@@ -160,6 +174,20 @@ int main() {
                     if (tvorbaNepritele) {
                         currentEnemy = getRandomEnemy(rand() % 4 + 1);
                         victory = combat.fight(currentEnemy);
+                        if (tvorbaNepritele) {
+                            currentEnemy = getRandomEnemy(rand() % 4 + 1);
+                            victory = combat.fight(currentEnemy);
+
+                            kres.NastavVysledkyBoje(
+                                Combat::last_player_roll,
+                                Combat::last_player_bonus,
+                                Combat::last_player_total,
+                                Combat::last_enemy_roll,
+                                Combat::last_enemy_bonus,
+                                Combat::last_enemy_total,
+                                Combat::last_battle_won
+                            );
+                        }
                     }
 
                     kres.Vymaz();
@@ -203,6 +231,20 @@ int main() {
                     if (tvorbaNepritele) {
                         currentEnemy = getRandomEnemy(rand() % 4 + 1);
                         victory = combat.fight(currentEnemy);
+                        if (tvorbaNepritele) {
+                            currentEnemy = getRandomEnemy(rand() % 4 + 1);
+                            victory = combat.fight(currentEnemy);
+
+                            kres.NastavVysledkyBoje(
+                                Combat::last_player_roll,
+                                Combat::last_player_bonus,
+                                Combat::last_player_total,
+                                Combat::last_enemy_roll,
+                                Combat::last_enemy_bonus,
+                                Combat::last_enemy_total,
+                                Combat::last_battle_won
+                            );
+                        }
                     }
 
                     kres.Vymaz();
@@ -246,6 +288,48 @@ int main() {
                     if (tvorbaNepritele) {
                         currentEnemy = getRandomEnemy(rand() % 4 + 1);
                         victory = combat.fight(currentEnemy);
+                        if (tvorbaNepritele) {
+                            currentEnemy = getRandomEnemy(rand() % 4 + 1);
+                            victory = combat.fight(currentEnemy);
+
+                            kres.NastavVysledkyBoje(
+                                Combat::last_player_roll,
+                                Combat::last_player_bonus,
+                                Combat::last_player_total,
+                                Combat::last_enemy_roll,
+                                Combat::last_enemy_bonus,
+                                Combat::last_enemy_total,
+                                Combat::last_battle_won
+                            );
+                        }
+                        if (tvorbaNepritele) {
+                            currentEnemy = getRandomEnemy(rand() % 4 + 1);
+                            victory = combat.fight(currentEnemy);
+                            if (tvorbaNepritele) {
+                                currentEnemy = getRandomEnemy(rand() % 4 + 1);
+                                victory = combat.fight(currentEnemy);
+
+                                kres.NastavVysledkyBoje(
+                                    Combat::last_player_roll,
+                                    Combat::last_player_bonus,
+                                    Combat::last_player_total,
+                                    Combat::last_enemy_roll,
+                                    Combat::last_enemy_bonus,
+                                    Combat::last_enemy_total,
+                                    Combat::last_battle_won
+                                );
+                            }
+
+                            kres.NastavVysledkyBoje(
+                                Combat::last_player_roll,
+                                Combat::last_player_bonus,
+                                Combat::last_player_total,
+                                Combat::last_enemy_roll,
+                                Combat::last_enemy_bonus,
+                                Combat::last_enemy_total,
+                                Combat::last_battle_won
+                            );
+                        }
                     }
 
                     kres.Vymaz();
