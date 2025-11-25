@@ -5,6 +5,7 @@
 #include "combat.h"
 #include <iostream>
 #include "dice_roll.h"
+#include "difficulty.h"
 
 // Inicializace statických proměnných
 int Combat::enemy_damage = 0;
@@ -18,9 +19,13 @@ bool Combat::last_battle_won = false;
 
 Combat::Combat(StatBar& stats) : playerStats(stats) {}
 
-// Hod D20
+// Hod D20 pro hrace
 int Combat::rollD20() {
     return rollDice(20);
+}
+int Combat::rollEnemy()
+{
+    return rollDice(DiceMax);
 }
 
 // Soucet bonusu hrace
@@ -50,9 +55,9 @@ bool Combat::fight(Enemy& enemy) {
     int playerBonus = calculateTotalCombatBonus();
     int playerTotal = playerRoll + playerBonus;
 
-    int enemyRoll = rollD20();
+    int enemyRoll = rollEnemy();
     int enemyBonus = enemy.difficultyNumber;
-    int enemyTotal = 0 + enemyBonus;
+    int enemyTotal = enemyRoll + enemyBonus;
 
     // ULOŽENÍ VÝSLEDKŮ do statických proměnných
     last_player_roll = playerRoll;

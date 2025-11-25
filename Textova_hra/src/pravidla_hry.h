@@ -13,6 +13,8 @@ void slowPrint(const std::string& text, int delayMs = 20);
 
 void printIntro();
 
+void ChooseDifficulty();
+
 // Vypise pravidla ze souboru
 void printRules(const std::string& filename);
 

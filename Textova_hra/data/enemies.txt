@@ -3,7 +3,7 @@
 Obrovska krysa,8,5,1,Obrovska krysa s rude zaricima ocima.,Rusty Dagger:Gold Coins
 Goblin pruzkumnik,9,8,1,Maly zeleny skret s primitivnim kyjem.,Rusty Dagger:Short Sword
 Padly valecnik,10,10,1,Ozivly kostlivec ozbrojeny rezavymi zbranemi.,Short Sword:Leather Vest
-Divoky vlk,9,7,1,Hladový vlk s ostrými tesáky.,Leather Vest:Gold Coins
+Divoky vlk,9,7,1,Hladovy vlk s ostrými tesaky.,Leather Vest:Gold Coins
 
 # TIER 2 - Stredny nepratele (potrebna 12-14 na kill)
 Rabujici Orc,12,20,2,Brutalni orksky valecnik pokryty bitevnimi jizvami.,Battle Axe:Chainmail
@@ -15,7 +15,7 @@ Vudce banditu,13,22,2,Lstivy zlodej a vudce zdejsich zlocincu.,Battle Axe:Silver
 # TIER 3 - Tezci nepratele (potrebna 16-18 na kill)
 Berserker troll,16,40,3,Obrovsky troll s neuveritelnymi regeneracnimi schopnostmi.,Enchanted Blade:Steel Armor:Ancient Gem
 Pan upiru,17,50,3,Staroveky upir s hypnotickymi schopnostmi.,Legendary Sword:Dragon Scale Armor
-Kamenny golem,18,45,3,Masivni stvoreni z zivého kamene.,Enchanted Blade:Steel Armor
+Kamenny golem,18,45,3,Masivni stvoreni z ziveho kamene.,Enchanted Blade:Steel Armor
 Tajemny vrah,16,42,3,Smrtici zabijak utocici ze stinu noci.,Enchanted Blade:Hero's Elixir
 
 # TIER 4 - Boss (potrebna 20+ na kill)

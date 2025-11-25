@@ -17,18 +17,20 @@
 int main() {
     // Inicializace
     Combat::enemy_damage = 0;
-    // showMenu();
+     std::cout << "\n========================================\n";
+    std::cout << "       DUNGEON CRAWLER - HRA            \n";
+    std::cout << "========================================\n\n";
+
+    showMenu();
 
     // Inicializuj loot systém
     initLootSystem("data/loot_table.txt");
 
     // Vytvoř hráče
-    StatBar playerStats(1000, 50);  // 100 HP, 50 gold
+    StatBar playerStats(100, 50);  // 100 HP, 50 gold
     Combat combat(playerStats);
 
-    std::cout << "\n========================================\n";
-    std::cout << "       DUNGEON CRAWLER - HRA            \n";
-    std::cout << "========================================\n\n";
+
 
     std::cout << "Zaciatocny stav hraca:\n";
     playerStats.display();
@@ -52,7 +54,7 @@ int main() {
         if (*columns <= 0) *columns = 80;
         if (*rows <= 0) *rows = 30;
 
-        std::cout << "[INFO] Pouzivam rozmery: " << *columns << "x" << *rows << "\n";
+        // std::cout << "[INFO] Pouzivam rozmery: " << *columns << "x" << *rows << "\n";
 
         Kresleni kres(*columns - 1, *rows - 1);
 
@@ -70,8 +72,8 @@ int main() {
         );
         kres.PsaniEnemy(currentEnemy.name, currentEnemy.description, "");
 
-        std::cout << "\n[INFO] Hra spustena! Pouzivaj sipky pre pohyb medzi miestnostami.\n";
-        std::cout << "[INFO] Stlac ESC pre ukoncenie.\n\n";
+        std::cout << "\n[INFO] Hra spustena! Pouzivej sipky pro pohyb mezi mistnostmi.\n";
+        std::cout << "[INFO] Stlac ESC pro ukonceni.\n\n";
 
         // Počáteční vykreslení
         kres.Vykresleni(kres);
@@ -93,7 +95,7 @@ int main() {
 
             // Kontrola, jestli hráč žije
             if (!playerStats.isAlive()) {
-                std::cout << "\n\n*** GAME OVER - ZOMREL SI! ***\n";
+                std::cout << "\n\n*** GAME OVER - ZEMREL SI! ***\n";
                 std::cout << "Stlac ESC pre ukoncenie...\n";
                 while (!GetAsyncKeyState(VK_ESCAPE)) {
                     std::this_thread::sleep_for(std::chrono::milliseconds(100));
@@ -372,12 +374,12 @@ int main() {
     }
 
     std::cout << "\n========================================\n";
-    std::cout << "         FINÁLNE ŠTATISTIKY             \n";
+    std::cout << "         FINALNE STATISTIKY             \n";
     std::cout << "========================================\n";
     playerStats.display();
 
     std::cout << "\n========================================\n";
-    std::cout << "    ĎAKUJEM ZA HRU!                     \n";
+    std::cout << "    DEKUJEM ZA HRU!                     \n";
     std::cout << "========================================\n";
 
     return 0;

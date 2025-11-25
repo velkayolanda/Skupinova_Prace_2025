@@ -281,11 +281,11 @@ void Kresleni::Final(Mistnost &mistnost, std::string PozadovaneD) {
 
 }
 void Kresleni::NastavVysledkyBoje(int playerRoll, int playerBonus, int playerTotal, int enemyRoll, int enemyBonus, int enemyTotal,bool victory) {
-    lastPlayerRoll = "Hrac: d20=" + std::to_string(playerRoll) + " +bon=" + std::to_string(playerBonus) + " =" + std::to_string(playerTotal);
+    lastPlayerRoll = "Hrac hod = " + std::to_string(playerRoll) + " + " + std::to_string(playerBonus) + " = " + std::to_string(playerTotal);
 
-    lastEnemyRoll = "Enemy: d20=" + std::to_string(enemyRoll) +
-                    " +bon=" + std::to_string(enemyBonus) +
-                    " =" + std::to_string(enemyTotal);
+    lastEnemyRoll = "Enemy hod = " + std::to_string(enemyRoll) +
+                    " + " + std::to_string(enemyBonus) +
+                    " = " + std::to_string(enemyTotal);
 
     lastBattleResult = victory ? ">>> VYHRAL <<<" : ">>> PROHRAL <<<";
 }

@@ -45,7 +45,7 @@ std::vector<Enemy> getHardcodedEnemies() {
     wolf.goldReward = 7;
     wolf.tier = 1;
     wolf.possibleLootNames = {"Kozena vesta", "Zlataky"};
-    wolf.description = "Hladový vlk s ostrými tesáky.";
+    wolf.description = "Hladovy vlk s ostrymi tesaky.";
     enemies.push_back(wolf);
 
     // TIER 2 - Stredny nepratele
@@ -72,7 +72,7 @@ std::vector<Enemy> getHardcodedEnemies() {
     knight.difficultyNumber = 14;
     knight.goldReward = 30;
     knight.tier = 2;
-    knight.possibleLootNames = {"Bojova sekera","Ocelové brneni"};
+    knight.possibleLootNames = {"Bojova sekera","Ocelove brneni"};
     knight.description = "Padly rytir spoutany temnou magii.";
     enemies.push_back(knight);
 
@@ -100,7 +100,7 @@ std::vector<Enemy> getHardcodedEnemies() {
     troll.difficultyNumber = 16;
     troll.goldReward = 40;
     troll.tier = 3;
-    troll.possibleLootNames = {"Magicky posilena cepel","Ocelové brneni","Staroveky drahokam"};
+    troll.possibleLootNames = {"Magicky posilena cepel","Ocelove brneni","Staroveky drahokam"};
     troll.description = "Obrovsky troll s neuveritelnymi regeneračćnimi schopnostmi.";
     enemies.push_back(troll);
 
@@ -118,8 +118,8 @@ std::vector<Enemy> getHardcodedEnemies() {
     golem.difficultyNumber = 18;
     golem.goldReward = 45;
     golem.tier = 3;
-    golem.possibleLootNames = {"Magicky posilena cepel","Ocelové brneni"};
-    golem.description = "Masivni stvoreni z zivého kamene.";
+    golem.possibleLootNames = {"Magicky posilena cepel","Ocelove brneni"};
+    golem.description = "Masivni stvoreni z ziveho kamene.";
     enemies.push_back(golem);
 
     Enemy assassin;
@@ -244,7 +244,7 @@ std::vector<Item> getAllItems() {
         // Zbroj
         {"Kozena vesta", 1, 10, "zbroj"},
         {"Krouzkova zbroj", 2, 25, "zbroj"},
-        {"Ocelové brneni", 3, 45, "zbroj"},
+        {"Ocelove brneni", 3, 45, "zbroj"},
         {"Zbroj z dracich supin", 4, 80, "zbroj"},
 
         // Potecka

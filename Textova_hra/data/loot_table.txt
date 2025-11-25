@@ -9,7 +9,7 @@ Legendarni mec,5,100,zbran
 # Zbroj
 Kozena vesta,1,10,zbroj
 Krouzkova zbroj,2,25,zbroj
-Ocelové brneni,3,45,zbroj
+Ocelove brneni,3,45,zbroj
 Zbroj z dracich supin,4,80,zbroj
 
 # Potecka

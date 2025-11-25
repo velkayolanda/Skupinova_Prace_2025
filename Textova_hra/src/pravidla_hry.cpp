@@ -7,6 +7,7 @@
 #include <fstream>
 #include <thread>
 #include <chrono>
+#include "difficulty.h"
 
 using namespace std;
 
@@ -16,26 +17,61 @@ void slowPrint(const std::string& text, int delayMs) {
         this_thread::sleep_for(chrono::milliseconds(delayMs));
     }
 }
+void ChooseDifficulty()
+{
+    while (true) {
+        cout << "===== Vyber obtiznosti =====\n";
+        cout << "1. Lehky\n";
+        cout << "2. Stredne tezky\n";
+        cout << "3. Tezky\n";
+        cout << "4. Insane\n";
+        cout << "Volba: ";
+
+        int volba;
+        cin >> volba;
+
+        if (volba == 1) {
+            setDifficultyEasy();
+            break;
+        }
+        else if (volba == 2) {
+            setDifficultyMedium();
+            break;
+        }
+        else if (volba == 3) {
+            setDifficultyHard();
+            break;
+        }
+        else if (volba == 4) {
+            setDifficultyInsane();
+            break;
+        }
+        else {
+            cout << "Neplatna volba.\n";
+        }
+    }
+
+}
 
 void printIntro() {
     slowPrint(
-            "V hlubinach pod zborenou pevnosti Karak lezi labyrint,\n"
-            "ktery se meni jako zivy organismus. Chodby se preskupují,\n"
+            "V hlubinach pod zborenou pevnosti Crawler lezi labyrint,\n"
+            "ktery se meni jako zivy organismus. Chodby se preskupuji,\n"
             "mistnosti dychaji tichou temnotou a kazdy krok muze byt posledni.\n\n"
 
-            "Rika se, ze v samotnem srdci podzemi spi draci tyran Mor'Karath,\n"
+            "Rika se, ze v samotnem srdci podzemi spi kral demonu tyran Mor'Karath,\n"
             "postrach starych kralovstvi, bytost tak mocna, ze i stiny pred nim\n"
             "uhybaji. Jeho dech spaluje duse a jeho srdce je poklad,\n"
-            "ktery dokaze změnit osud toho, kdo jej ziska.\n\n"
+            "ktery dokaze zmenit osud toho, kdo jej ziska.\n\n"
 
-            "Mnozi se pokusili projít temnim bludištěm Karaku...\n"
-            "mnozi se ztratili, mnozi zemřeli, ale nikdo se nevratil s dracim pokladem.\n\n"
+            "Mnozi se pokusili projít temnim bludistem Crawleru...\n"
+            "mnozi se ztratili, mnozi zemreli, ale nikdo se nevratil s dracim pokladem.\n\n"
 
             "Ted prichazis ty.\n"
             "Vybaven jen odvahu, slabou zbrani a nadeji,\n"
             "ze temnota ustoupi pred tvym odhodlanim.\n\n"
 
-            "Vstup do Karaku.\n"
+            "Vstup do Crawleru.\n"
             "Kazdy tvuj krok se zapise do kronik... nebo do zapomenuti.\n\n"
     );
 }
@@ -73,6 +109,7 @@ void showMenu() {
         cin >> volba;
 
         if (volba == 1) {
+            ChooseDifficulty();
             printIntro();
             slowPrint("Hra zacala...\n\n", 20);
             break;

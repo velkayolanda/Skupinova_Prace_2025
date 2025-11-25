@@ -1,7 +1,7 @@
 PRAVIDLA HRY
 Cil hry
 
-Tvym ukolem je prozkoumat podzemni labyrint, porazit nepratele a nakonec zabit mocneho draka, ktery ceka v hlubinach. Aby ses stal hrdinou Karaku, musis prezit, sbirat vybaveni a strategicky vyuzivat sve schopnosti.
+Tvym ukolem je prozkoumat podzemni labyrint, porazit nepratele a nakonec zabit mocneho draka, ktery ceka v hlubinach. Aby ses stal hrdinou Dungeonu, musis prezit, sbirat vybaveni a strategicky vyuzivat sve schopnosti.
 
 Pohyb po mape
 

@@ -16,6 +16,7 @@ private:
     StatBar& playerStats;
 
     int rollD20();
+    int rollEnemy();
     int calculateTotalCombatBonus();
     void displayCombatStart(const Enemy& enemy);
     void displayRollResult(int roll, int bonus, int total, const std::string& context);

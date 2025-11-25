@@ -25,7 +25,9 @@ foreach(MAIN_FILE IN LISTS ALL_MAINS)
     file(GLOB LOCAL_HEADERS "${PROG_DIR}/*.h" "${PROG_DIR}/*.hpp")
     set(ALL_SOURCES ${LOCAL_CPP} ${LOCAL_HEADERS}
             Textova_hra/src/StatBar.cpp
-            Textova_hra/src/StatBar.h)
+            Textova_hra/src/StatBar.h
+            Textova_hra/src/difficulty.cpp
+            Textova_hra/src/difficulty.h)
 
     # Get all subdirectories
     file(GLOB SUBDIRS LIST_DIRECTORIES true "${PROG_DIR}/*")
