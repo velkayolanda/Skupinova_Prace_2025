@@ -236,7 +236,7 @@ void Kresleni::PsaniEnemy(std::string Jmeno, std::string Popis, std::string Soub
 
     VypisText(Jmeno, minX +5, cy);
     VypisText(Popis, minX+5, cy+1);
-    VypisText(Souboj, minX+5, cy+2);
+    VypisText(Souboj, minX+5, cy+3);
 }
 
 void Kresleni::RozmisteniPredmetu(int Mnozstvi) {
