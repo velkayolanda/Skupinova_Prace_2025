@@ -21,16 +21,16 @@ int Combat::calculateTotalCombatBonus() {
 
 // Zobrazeni zacatku boje
 void Combat::displayCombatStart(const Enemy& enemy) {
-    std::cout << "Narazil jsi na " << enemy.name << "!\n";
-    std::cout << enemy.description << "\n";
-    std::cout << "Enemakova obtiznost: " << enemy.difficultyNumber << "\n";
+    //std::cout << "Narazil jsi na " << enemy.name << "!\n";
+    //std::cout << enemy.description << "\n";
+    //std::cout << "Enemakova obtiznost: " << enemy.difficultyNumber << "\n";
 }
 
 // Zobrazeni hodu
 void Combat::displayRollResult(int roll, int bonus, int total, const std::string& context) {
-    std::cout << context << ": Hod " << roll
-              << " + Bonus " << bonus
-              << " = Total " << total << "\n";
+    //std::cout << context << ": Hod " << roll
+      //        << " + Bonus " << bonus
+        //      << " = Total " << total << "\n";
 }
 
 // Hlavni boj
@@ -47,7 +47,7 @@ bool Combat::fight(Enemy& enemy) {
     displayRollResult(enemyRoll, enemy.difficultyNumber, enemyTotal, "Enemy");
 
     if (playerTotal >= enemyTotal) {
-        std::cout << "Vyhrals!\n";
+        //std::cout << "Vyhrals!\n";
         collectLoot(enemy);
         return true;
     } else {
@@ -55,7 +55,7 @@ bool Combat::fight(Enemy& enemy) {
         int damage = enemy.difficultyNumber; // Jednoduchá logika damage
         playerStats.takeDamage(damage);
         Combat::enemy_damage = damage;
-        std::cout << "Prohrals! Dostals " << damage << " damage.\n";
+        //std::cout << "Prohrals! Dostals " << damage << " damage.\n";
         return false;
     }
 }
@@ -64,13 +64,13 @@ bool Combat::fight(Enemy& enemy) {
 void Combat::collectLoot(const Enemy& enemy) {
     // Přidej zlato
     playerStats.addGold(enemy.goldReward);
-    std::cout << "Získals " << enemy.goldReward << " zlata!\n";
+    //std::cout << "Získals " << enemy.goldReward << " zlata!\n";
 
     // Pokud má nepřítel možný loot
     if (!enemy.possibleLootNames.empty()) {
-        std::cout << "[DEBUG] Získávám loot...\n";
+        //std::cout << "[DEBUG] Získávám loot...\n";
         Item loot = getEnemyLootDrop(enemy);
-        std::cout << "[DEBUG] Loot získán: " << loot.name << "\n";
+        //std::cout << "[DEBUG] Loot získán: " << loot.name << "\n";
 
         // Kontrola, jestli není "Nothing"
         if (loot.name != "Nothing" && loot.type != "empty") {
@@ -78,8 +78,8 @@ void Combat::collectLoot(const Enemy& enemy) {
             // Musíme ho přidat do StatBar inventáře
             playerStats.addItem(loot);
 
-            std::cout << "Dostals loot: " << loot.name
-                      << " (+" << loot.combatBonus << " combat bonus)\n";
+          //  std::cout << "Dostals loot: " << loot.name
+            //          << " (+" << loot.combatBonus << " combat bonus)\n";
         }
     }
 }
