@@ -24,7 +24,7 @@ int main() {
     showMenu();
 
     // Inicializuj loot systém
-    initLootSystem("data/loot_table.txt");
+    initLootSystem("loot_table.txt");
 
     // Vytvoř hráče
     StatBar playerStats(100, 0);  // 100 HP, 0 gold
@@ -35,8 +35,8 @@ int main() {
     std::cout << "Zacatecni stav hrace:\n";
     playerStats.display();
 
-    std::cout << "\nStiskni Enter pro start...\n";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    // std::cout << "\nStiskni Enter pro start...\n";
+    // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     // ============================================
     // HLAVNÍ HRA S KRESLENÍM

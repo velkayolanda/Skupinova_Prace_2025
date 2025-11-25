@@ -61,6 +61,8 @@ foreach(MAIN_FILE IN LISTS ALL_MAINS)
         add_executable(${EXEC_NAME} ${ALL_SOURCES})
         configure_file(Textova_hra/data/1J_Ctverec.txt 1J_Ctverec.txt COPYONLY)
         configure_file(Textova_hra/data/pravidla.txt pravidla.txt COPYONLY)
+        configure_file(Textova_hra/data/loot_table.txt loot_table.txt COPYONLY)
+
 
         target_include_directories(${EXEC_NAME} PRIVATE ${PROG_DIR})
         list(LENGTH ALL_SOURCES NUM_FILES)

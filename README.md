@@ -1,54 +1,42 @@
-Skupinova prace
-Skupina: Jan Bartoň, Nikola Haluzová, Lukáš Kalenský, Vladan Kořenek, Marek Ševčík
+# Skupinová Práce - Dungeon Crawler
 
-Dungeon Crawler - Textová hra
+**Skupina:** Jan Bartoň, Nikola Haluzová, Lukáš Kalenský, Vladan Kořenek, Marek Ševčík
 
-Dungeon Crawler je interaktivní textová hra napsaná v jazyce C++. Cílem hráče je prozkoumávat místnosti, bojovat s nepřáteli, sbírat předměty a přežít. Hra spojuje strategické prvky s jednoduchou grafikou a příběhem.
+## 📖 O Hře
 
+**Dungeon Crawler** je interaktivní textová hra napsaná v jazyce C++. Cílem hráče je prozkoumávat místnosti, bojovat s nepřáteli, sbírat předměty a přežít. Hra spojuje strategické prvky s jednoduchou grafikou a příběhem.
 
-Popis funkcí
+---
 
-1. Hlavní průběh hry
+## ✨ Klíčové Funkce
 
-• Hráč začíná hru se startovními hodnotami zdraví (HP) a zlatem.
+### 1. Hlavní Průběh Hry
+- Hráč začíná se startovními hodnotami zdraví (HP) a zlatem
+- Hlavní herní obrazovka zobrazuje stav hráče, nepřátel a obsah místnosti
+- Pohyb mezi místnostmi pomocí šipek na klávesnici
+- Souboje řízené náhodnými hodnotami a bonusy hráče
 
-• Hlavní herní obrazovka zahrnuje základní informace o stavu hráče, nepřátelích a obsahu místnosti.
+### 2. Generování Místností
+Třída `Mistnost` zajišťuje náhodné vytváření místností s různými vlastnostmi a obsahem.
 
-• Hráč se pohybuje mezi místnostmi pomocí šipek na klávesnici.
+### 3. Zdraví a Inventář
+Třída `StatBar` spravuje:
+- `getHealth()` — aktuální stav zdraví hráče
+- `getInventory()` — předměty v inventáři
+- `getGold()` — nasbírané zlato
 
-• Souboje v místnostech jsou řízené náhodnými hodnotami a bonusy hráče.
+### 4. Souboje
+Funkce `combat.fight()` řídí souboje s náhodně generovanými nepřáteli pomocí `getRandomEnemy()`.
 
-2. Generování místností
+### 5. Vizuální Styl
+Třída `Kresleni` spravuje:
+- Zobrazení místností a jejich obsahu
+- Vykreslení statistik hráče a nepřátel
+- Vykreslení aktuální herní situace
 
-Použití třídy Mistnost pro náhodné vytváření místností s různými vlastnostmi a obsahem.
+---
 
-3. Zdraví a inventář
+## 🎮 Klíčové Výstupy ve Hře
 
-Správa hráče probíhá přes třídu StatBar, kde:
-
-• getHealth() sleduje aktuální stav zdraví hráče.
-
-• getInventory() informuje o předmětech v inventáři.
-
-• getGold() zobrazuje množství nasbíraného zlata.
-
-4. Souboje
-
-Pomocí funkce combat.fight() dochází k soubojům s náhodnými nepřáteli generovanými funkcí getRandomEnemy().
-
-5. Vizuální styl
-
-Vykreslování místností a rozhraní hry realizuje třída Kresleni, která spravuje:
-
-• Zobrazení místností a obsahu.
-
-• Psání statistik hráče a nepřátel.
-
-• Vykreslení aktuální herní situace.
-
-
-Klíčové výstupy ve hře
-
-• Výsledky soubojů: Hráč může vyhrát nebo prohrát, což ovlivní jeho zdraví (damage od nepřátel).
-
-• Náhodné události: V místnosti se mohou objevit předměty nebo nepřátelé.
+- **Výsledky soubojů:** Hráč může vyhrát nebo prohrát, což ovlivní jeho zdraví
+- **Náhodné události:** V místnostech se objevují předměty a nepřátelé

@@ -110,7 +110,7 @@ void showMenu() {
 
         if (volba == 1) {
             ChooseDifficulty();
-            // printIntro();
+            printIntro();
             slowPrint("Hra zacala...\n\n", 20);
             break;
         }
