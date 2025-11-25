@@ -52,7 +52,7 @@ bool Combat::fight(Enemy& enemy) {
 
     int enemyRoll = rollD20();
     int enemyBonus = enemy.difficultyNumber;
-    int enemyTotal = enemyRoll + enemyBonus;
+    int enemyTotal = 0 + enemyBonus;
 
     // ULOŽENÍ VÝSLEDKŮ do statických proměnných
     last_player_roll = playerRoll;
@@ -67,7 +67,6 @@ bool Combat::fight(Enemy& enemy) {
 
     if (playerTotal >= enemyTotal) {
         //std::cout << "Vyhrals!\n";
-        std::cout << "Vyhrals!\n";
         last_battle_won = true;
         collectLoot(enemy);
         return true;
@@ -77,7 +76,6 @@ bool Combat::fight(Enemy& enemy) {
         Combat::enemy_damage = damage;
         //std::cout << "Prohrals! Dostals " << damage << " damage.\n";
         last_battle_won = false;
-        std::cout << "Prohrals! Dostals " << damage << " damage.\n";
         return false;
     }
 }
@@ -100,8 +98,7 @@ void Combat::collectLoot(const Enemy& enemy) {
 
           //  std::cout << "Dostals loot: " << loot.name
             //          << " (+" << loot.combatBonus << " combat bonus)\n";
-            std::cout << "Dostals loot: " << loot.name
-                      << " (+" << loot.combatBonus << " combat bonus)\n";
+
         }
     }
 }
