@@ -64,7 +64,7 @@ void printIntro() {
             "uhybaji. Jeho dech spaluje duse a jeho srdce je poklad,\n"
             "ktery dokaze zmenit osud toho, kdo jej ziska.\n\n"
 
-            "Mnozi se pokusili projít temnim bludistem Crawleru...\n"
+            "Mnozi se pokusili projit temnim bludistem Crawleru...\n"
             "mnozi se ztratili, mnozi zemreli, ale nikdo se nevratil s dracim pokladem.\n\n"
 
             "Ted prichazis ty.\n"
@@ -110,7 +110,7 @@ void showMenu() {
 
         if (volba == 1) {
             ChooseDifficulty();
-            printIntro();
+            // printIntro();
             slowPrint("Hra zacala...\n\n", 20);
             break;
         }

@@ -224,9 +224,9 @@ void Kresleni::VypisText(std::string Text, int zacatekx, int zacateky) {
 void Kresleni::PsaniStat(std::string Zivoty, std::string BonusD, std::vector<Item> Item, std::string penize) {
     std::vector<std::string> text = {
         "Statistika: ",
-        "Mas zivotu: " + Zivoty,
+        "Zivoty: " + Zivoty,
         "Bonus damage: " + BonusD,
-        "Penize: " + penize,
+        "Zlataky: " + penize,
         "Inventar:"
     };
 

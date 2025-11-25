@@ -101,7 +101,7 @@ std::vector<Enemy> getHardcodedEnemies() {
     troll.goldReward = 40;
     troll.tier = 3;
     troll.possibleLootNames = {"Magicky posilena cepel","Ocelove brneni","Staroveky drahokam"};
-    troll.description = "Obrovsky troll s neuveritelnymi regeneračćnimi schopnostmi.";
+    troll.description = "Obrovsky troll s neuveritelnymi regeneracnimi schopnostmi.";
     enemies.push_back(troll);
 
     Enemy vampire;

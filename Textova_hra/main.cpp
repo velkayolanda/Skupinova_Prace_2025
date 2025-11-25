@@ -27,15 +27,15 @@ int main() {
     initLootSystem("data/loot_table.txt");
 
     // Vytvoř hráče
-    StatBar playerStats(100, 50);  // 100 HP, 50 gold
+    StatBar playerStats(100, 0);  // 100 HP, 0 gold
     Combat combat(playerStats);
 
 
 
-    std::cout << "Zaciatocny stav hraca:\n";
+    std::cout << "Zacatecni stav hrace:\n";
     playerStats.display();
 
-    std::cout << "\nStlac Enter pre start...\n";
+    std::cout << "\nStiskni Enter pro start...\n";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     // ============================================
@@ -73,7 +73,7 @@ int main() {
         kres.PsaniEnemy(currentEnemy.name, currentEnemy.description, "");
 
         std::cout << "\n[INFO] Hra spustena! Pouzivej sipky pro pohyb mezi mistnostmi.\n";
-        std::cout << "[INFO] Stlac ESC pro ukonceni.\n\n";
+        std::cout << "[INFO] Stiksni ESC pro ukonceni.\n\n";
 
         // Počáteční vykreslení
         kres.Vykresleni(kres);
@@ -89,14 +89,14 @@ int main() {
             }
             // Kontrola ESC pro ukončení
             if (GetAsyncKeyState(VK_ESCAPE)) {
-                std::cout << "\n[INFO] Ukoncujem hru...\n";
+                std::cout << "\n[INFO] Ukoncuji hru...\n";
                 break;
             }
 
             // Kontrola, jestli hráč žije
             if (!playerStats.isAlive()) {
-                std::cout << "\n\n*** GAME OVER - ZEMREL SI! ***\n";
-                std::cout << "Stlac ESC pre ukoncenie...\n";
+                std::cout << "\n\n*** GAME OVER - ZEMREL JSI! ***\n";
+                std::cout << "Stiskni ESC pro ukonceni...\n";
                 while (!GetAsyncKeyState(VK_ESCAPE)) {
                     std::this_thread::sleep_for(std::chrono::milliseconds(100));
                 }
@@ -369,17 +369,17 @@ int main() {
         delete rows;
 
     } catch (const std::exception& e) {
-        std::cerr << "\n[KRITICKÁ CHYBA] " << e.what() << "\n";
+        std::cerr << "\n[KRITICKA CHYBA] " << e.what() << "\n";
         return 1;
     }
 
     std::cout << "\n========================================\n";
-    std::cout << "         FINALNE STATISTIKY             \n";
+    std::cout << "         FINALNI STATISTIKY             \n";
     std::cout << "========================================\n";
     playerStats.display();
 
     std::cout << "\n========================================\n";
-    std::cout << "    DEKUJEM ZA HRU!                     \n";
+    std::cout << "    DEKUJEME ZA HRU!                     \n";
     std::cout << "========================================\n";
 
     return 0;
